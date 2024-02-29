@@ -2,8 +2,8 @@
     <header id="header" class="header">
         <div class="top-left">
             <div class="navbar-header">
-                <a class="navbar-brand"><img src="assets/img/icons/Sans titree.png" alt="Logo"></a>
-                <a class="navbar-brand hidden"><img src="assets/img/icons/logotrans.png" alt="Logo2"></a>
+                <a class="navbar-brand"><img src="{{asset('assets/img/icons/Sans titree.png')}}" alt="Logo"></a>
+                <a class="navbar-brand hidden"><img src="{{asset('assets/img/icons/logotrans.png')}}" alt="Logo2"></a>
                 <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
             </div>
         </div>

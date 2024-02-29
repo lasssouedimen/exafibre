@@ -12,6 +12,7 @@ class technicienscontroller extends Controller
     {
         return view('Techniciens.indexTec');
     }
+   
 
     public function create()
     {
@@ -34,8 +35,7 @@ class technicienscontroller extends Controller
        Techniciens::create($request->post());
          return redirect(route('techniciens.index'))->with('success', 'crée avec succée !');
     }
- /*   
-
+/* 
     public function edit(promotions $promotion)
 {  
      $promotions = promotions::all();

@@ -1,6 +1,6 @@
+@include('layout.menu')
 @include('layout.header')
 <title> Techniciens | ExaFibre  </title>
-@include('layout.menu')
 <main class="content">
 <div id="wrapper">
     <div class="mb-3">
@@ -15,7 +15,7 @@
                         <div class="card-body">
                                     <h5 class="card-title">Techniciens</h5>
                             <div class="form-group">
-                                 <a href="{{ route('techniciens.create') }}"  class="btn btn-light px-5" style="font-size:13px ; background-color:rgb(176, 172, 253) ;color:rgb(243, 243, 245) ; float: right "> Ajouter</a>
+                                 <a href="{{ route('Techniciens.create') }}"  class="btn btn-light px-5" style="font-size:13px ; background-color:rgb(57, 177, 97) ;color:rgb(243, 243, 245) ; float: right "> Ajouter</a>
                                 @if ($message = Session::get('success'))
                                     <div class="alert alert-success">
                                         <p>{{ $message }}</p>
