@@ -68,8 +68,8 @@
 <!-- Inclusion incorrecte de la bibliothèque DataTables -->
 <script src="{{asset('js/dataTables.min.js')}}"></script>
 <!-- Inclusion incorrecte de la bibliothèque jQuery DataTables -->
-<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="{{asset('https://code.jquery.com/jquery-3.7.0.js')}}"></script>
+<script src="{{asset('https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js')}}"></script>
 
 <script>
 $(document).ready(function() {

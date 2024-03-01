@@ -78,22 +78,22 @@
                        
                     </li>
                     <li >
-                        <a href="{{route('Techniciens.index')}}" > <i class="menu-icon fa fa-table"></i>Techniciens</a>
+                        <a href="{{route('Techniciens.index')}}" > <i class="menu-icon fa ti-user"></i>Techniciens</a>
 
                     </li>
                     <li>
-                        <a href="#"> <i class="menu-icon fa fa-th"></i>Travail</a>
+                        <a href="#"> <i class="menu-icon fa ti-server"></i>Travail</a>
                     </li>
 
 
                     <li >
-                        <a href="#" > <i class="menu-icon fa fa-tasks"></i>Parking</a>
+                        <a href="#" > <i class="menu-icon fa ti-truck"></i>Parking</a>
                         
                     </li>
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-email"></i>debo </a>
+                        <a href="widgets.html"> <i class="menu-icon ti-home"></i>debo </a>
                     </li>
-                    <li >
+                    <li class="menu-item-has-children dropdown">
                         <a href="#" > <i class="menu-icon fa fa-bar-chart"></i>Analyse de donnees</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-line-chart"></i><a href="charts-chartjs.html">Chart JS</a></li>
@@ -103,7 +103,7 @@
                     </li>
 
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Maps</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa ti-map-alt"></i>Maps</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-map-o"></i><a href="maps-gmap.html"> Maps de travail</a></li>
                             <li><i class="menu-icon fa fa-street-view"></i><a href="maps-vector.html">Maps de voiture</a></li>
