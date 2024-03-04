@@ -10,13 +10,16 @@
     <div class="content-wrapper">
         <div class="container-fluid">
             <div class="row mt-3">
-                <div class="col-lg- ">
+                <div class="col-lg-12">
                     <div class="card" style="background-color: rgba(255, 255, 255, 0.488);">
                         <div class="card-body">
-                                    <h5 class="card-title">Techniciens</h5>
+                                 
                             <div class="form-group">
                                  <a href="{{ route('Techniciens.create') }}"  class="btn btn-light px-5" style="font-size:13px ; background-color:rgb(57, 177, 97) ;color:rgb(243, 243, 245) ; float: right "> Ajouter</a>
-                                @if ($message = Session::get('success'))
+                                 <div class="card-header"><strong>Techniciens</strong></div>
+                                 <div class="card-body card-block">
+                                                     </div>
+                                 @if ($message = Session::get('success'))
                                     <div class="alert alert-success">
                                         <p>{{ $message }}</p>
                                     </div>
@@ -31,26 +34,36 @@
                                         <th scope="col">Age</th>
                                         <th scope="col"> Date de début</th>
                                         <th scope="col"> Email</th>
+                                        <th> action</th>
                                     
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  <!--  oreah (abonnements aabonnement)
-                                    <tr>
-                                        <td>{ { $abonnement->nom_abonnement }}</td>
-                                        <td>{ { $abonnement->par_1_MOIS }}</td>
-                                        <td>{ { $abonnement->par_3_MOIS }}</td>
-                                        <td>{ { $abonnement->par_6_MOIS }} </td>
-                                        <td>{ { $abonnement->par_1_ANS }} </td>
-                                        <td>endforeach-->
-                                        <!--    <a class="btn btn-light px-3"style="font-size:10px"href="{ { route('abonnements.edit',$abonnement->id) }}">MODIFIER</a>
-                                            <a   class="btn btn-light px-3" style="font-size:10px" href="{ { route('abonnements.archive', ['id' => $abonnement->id,'val' => 1]) }}"><i class="fa-solid fa-box-archive"></i>archivées</a>
-                                        -->
-                                        </td>
-                                    </tr>
+                                    @foreach ($techniciens as $technicien)
+                                            <tr>
+                                                <td>{{ $technicien->nom }}</td>
+                                                <td>{{ $technicien->adresse }}</td>
+                                                <td>{{ $technicien->tel }}</td>
+                                                <td>{{ $technicien->Age }} </td>
+                                                <td>{{ $technicien->Datedébut }} </td>
+                                                <td>{{ $technicien->mail }} </td> 
+                                                <td>
+                                                    <form action="{{ route('Techniciens.destroy',$technicien->id) }}" method="Post">
+                                                   
+                                                        <a class="btn btn-light px-3"style="font-size:10px"href="{{ route('Techniciens.edit', $technicien->id) }}">MODIFIER</a>
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit"
+                                                            class="btn btn-light px-3"style="font-size:10px"
+                                                            class="btn btn-danger">SUPPRIMER</button>
+                                                    </form>
+                                                
                                 
-
-                                </tbody>
+                                                </td>
+                                                
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
                             </table>
                         </div>
                     </div>

@@ -71,30 +71,30 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li >
-                        <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                        <a href="index.html" ><i class="menu-icon fa fa-laptop" ></i>Dashboard </a>
                     </li>
                     <li>
-                        <a href="#" > <i class="menu-icon ti-email"></i>Demande</a>
+                        <a href="#" > <i class="menu-icon fa fa-envelope "></i>Demande</a>
                        
                     </li>
                     <li >
-                        <a href="{{route('Techniciens.index')}}" > <i class="menu-icon fa ti-user"></i>Techniciens</a>
+                        <a href="{{route('Techniciens.index')}}" > <i class="menu-icon fa  fa-group (alias)"></i>Techniciens</a>
 
                     </li>
                     <li>
-                        <a href="#"> <i class="menu-icon fa ti-server"></i>Travail</a>
+                        <a href="#"> <i class="menu-icon fa fa-server"></i>Travail</a>
                     </li>
 
 
                     <li >
-                        <a href="#" > <i class="menu-icon fa ti-truck"></i>Parking</a>
+                        <a href="#" > <i class="menu-icon fa fa-truck"></i>Parking</a>
                         
                     </li>
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-home"></i>debo </a>
+                        <a href="widgets.html"> <i class="menu-icon fa fa-home"></i>debo </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" > <i class="menu-icon fa fa-bar-chart"></i>Analyse de donnees</a>
+                        <a href="#" > <i class="menu-icon fa fa-bar-chart-o"></i>Analyse de donnees</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-line-chart"></i><a href="charts-chartjs.html">Chart JS</a></li>
                             <li><i class="menu-icon fa fa-area-chart"></i><a href="charts-flot.html">Flot Chart</a></li>
@@ -103,7 +103,7 @@
                     </li>
 
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa ti-map-alt"></i>Maps</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-map-marker"></i>Maps</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-map-o"></i><a href="maps-gmap.html"> Maps de travail</a></li>
                             <li><i class="menu-icon fa fa-street-view"></i><a href="maps-vector.html">Maps de voiture</a></li>

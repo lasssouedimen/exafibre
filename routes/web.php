@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\technicienscontroller;
+use App\Http\Controllers\clientdemcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +31,5 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('Techniciens', technicienscontroller::class);
-
+Route::resource('clientdem', clientdemcontroller::class);
 require __DIR__.'/auth.php';

@@ -17,7 +17,7 @@
                         <div class="card-body">
                             <div class="form-group">
 								<a href="{{ route('Techniciens.index') }}"  type="submit" class="btn btn-light px-5" style="font-size:13px; background-color:rgb(57, 177, 97) ;color:rgb(243, 243, 245) ; float: right"> Retour</a>								
-								<div class="card-header"><strong>Ajouter</strong><small> Technicien</small></div>
+								<div class="card-header"><strong>Modifier</strong><small> Technicien</small></div>
 		<div class="card-body card-block">
 							</div>
 							<hr>
@@ -27,7 +27,11 @@
                                     </div>
                                 @endif
                          
-					<form  action="{{ route('Techniciens.store') }}" method="POST" enctype="multipart/form-data">
+                                @foreach ($techniciens as $technicien)
+                                <form action="{{ route('Techniciens.update', $technicien->id) }}" method="post"
+                                    enctype="multipart/form-data">
+                            @endforeach
+                            @method('PUT')
 						@csrf
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12">
@@ -98,3 +102,22 @@
 	</div>
 </main>
 @include('layout.footer')
+<div class="col-lg-6">
+	<div class="card">
+		<div class="card-header"><strong>Company</strong><small> Form</small></div>
+		<div class="card-body card-block">
+			<div class="form-group"><label for="company" class=" form-control-label">Company</label><input type="text" id="company" placeholder="Enter your company name" class="form-control"></div>
+			<div class="form-group"><label for="vat" class=" form-control-label">VAT</label><input type="text" id="vat" placeholder="DE1234567890" class="form-control"></div>
+			<div class="form-group"><label for="street" class=" form-control-label">Street</label><input type="text" id="street" placeholder="Enter street name" class="form-control"></div>
+			<div class="row form-group">
+				<div class="col-8">
+					<div class="form-group"><label for="city" class=" form-control-label">City</label><input type="text" id="city" placeholder="Enter your city" class="form-control"></div>
+				</div>
+				<div class="col-8">
+					<div class="form-group"><label for="postal-code" class=" form-control-label">Postal Code</label><input type="text" id="postal-code" placeholder="Postal Code" class="form-control"></div>
+				</div>
+			</div>
+			<div class="form-group"><label for="country" class=" form-control-label">Country</label><input type="text" id="country" placeholder="Country name" class="form-control"></div>
+		</div>
+	</div>
+</div>
