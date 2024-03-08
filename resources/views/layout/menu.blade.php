@@ -73,8 +73,8 @@
                     <li >
                         <a href="index.html" ><i class="menu-icon fa fa-laptop" ></i>Dashboard </a>
                     </li>
-                    <li>
-                        <a href="#" > <i class="menu-icon fa fa-envelope "></i>Demande</a>
+                    <li v >
+                        <a href="{{route('demandes.index')}}" ><i class="menu-icon fa fa-envelope "></i>Demande</a>
                        
                     </li>
                     <li >
@@ -91,7 +91,9 @@
                         
                     </li>
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon fa fa-home"></i>debo </a>
+                        <a href="widgets.html"> <i class="menu-icon fa fa-home"></i>stock.
+                        
+                         </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" > <i class="menu-icon fa fa-bar-chart-o"></i>Analyse de donnees</a>

@@ -57,8 +57,6 @@
                                                             class="btn btn-light px-3"style="font-size:10px"
                                                             class="btn btn-danger">SUPPRIMER</button>
                                                     </form>
-                                                
-                                
                                                 </td>
                                                 
                                             </tr>

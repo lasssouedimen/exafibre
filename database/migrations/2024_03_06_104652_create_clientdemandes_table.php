@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clientdem', function (Blueprint $table) {
+        Schema::create('clientdemandes', function (Blueprint $table) {
             $table->id();
             $table->string('prenom')->nullable();
             $table->string('nomfamille')->nullable();
@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('region')->nullable();
             $table->integer('codepostal')->nullable();
             $table->string('remarque')->nullable();
-            $table->timestamps();
             
+            $table->timestamps();
         });
     }
 
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('clientdemandes');
     }
 };

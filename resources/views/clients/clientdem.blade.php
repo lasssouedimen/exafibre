@@ -5,218 +5,75 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> Demande service | ExaFibre </title>
-    <meta name="description" content="Ela Admin - HTML5 Admin Template">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="{{ asset('https://i.imgur.com/QRAUqs9.png') }}">
-    <link rel="shortcut icon" href="{{ asset('assets/img/icons/logotrans.png') }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+        <meta name="author" content="AdminKit">
+        <meta name="keywords"
+            content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="shortcut icon" href="assets/img/icons/logotrans.png" />
+
+        <link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-in.html" />
 
 
-    <link rel="stylesheet" href="{{ asset('https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/cs-skin-elastic.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-    <link href="{{ asset('https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css') }}"
-        rel="stylesheet" />
-    <link href="{{ asset('https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css') }}"
-        rel="stylesheet" />
+        <link href="css/app.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <style>
-        #weatherWidget .currentDesc {
-            color: #ffffff !important;
-        }
 
-        .traffic-chart {
-            min-height: 335px;
-        }
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1/dist/css/bootstrap.min.css">
 
-        #flotPie1 {
-            height: 150px;
-        }
+    </head>
 
-        #flotPie1 td {
-            padding: 3px;
-        }
 
-        #flotPie1 table {
-            top: 20px !important;
-            right: -10px !important;
-        }
 
-        .chart-container {
-            display: table;
-            min-width: 270px;
-            text-align: left;
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
+<body>
+    <main class="d-flex w-100"
+        style="background-color:white ; background-image:url(assets/img/icons/logotranspar3.png);">
 
-        #flotLine5 {
-            height: 105px;
-        }
 
-        #flotBarChart {
-            height: 150px;
-        }
-
-        #cellPaiChart {
-            height: 160px;
-        }
-    </style>
-</head>
-<main class="content" style="background-color:white ; background-image:url(assets/img/icons/logotranspar3.png);">
-
-    <div id="wrapper" style=" display: flex ;  ">
-        <div class="mb-3">
-            <h1>Demande Service</h1><a class="badge bg-primary ms-2"></a>
-        </div>
-        <div class="clearfix"></div>
-        <div class="content-wrapper">
-            <div class="container-fluid">
-                <div class="row mt-3">
-                    <div class="col-lg-10 ">
-                        <div class="card" style="background-color: rgba(255, 255, 255, 0.488);">
+        <div class="container d-flex flex-column">
+            <div class="row vh-100">
+                <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+                    <div class="d-table-cell align-middle">
+                        <div class="card" style="background-color:rgb(243, 242, 248) ">
 
                             <div class="card-body">
-                                <div class="form-group">
-                                    <a href="" type="submit" class="btn btn-light px-5"
-                                        style="font-size:13px; background-color:rgb(57, 177, 97) ;color:rgb(243, 243, 245) ; float: right">
-                                        MAT Energy</a>
-                                    <div class="card-header"><strong>Ajouter</strong><small> Demande</small></div>
-                                    <div class="card-body card-block">
-                                    </div>
-                                    <hr>
-                                    @if ($message = Session::get('success'))
-                                        <div class="alert alert-success">
-                                            <p>{{ $message }}</p>
-                                        </div>
-                                    @endif
+                                <div class="m-sm-4">
+                                    <div class="text-center">
+                                        <img src="assets/img/avatars/logo..jpg" alt="Charles Hall"
+                                            class="img-fluid rounded-circle" width="170" height="170" />
 
-                                    <form action="{{ route('Techniciens.store') }}" method="POST"
-                                        enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label>prenom :
-                                                    </label>
-                                                    <input type="text" name="prenom" class="form-control"
-                                                        placeholder="prenom ">
-                                                    @error('prenom')
-                                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                                    @enderror
-                                                </div>
+
+                                        <a href="{{ route('clientdemandes.create') }}" class="btn btn-light px-5"
+                                            style="font-size:15px ; background-color:rgb(57, 177, 97) ;color:rgb(243, 243, 245) ; align-items: center; justify-content: center; ">envoyer une demande</a>
+
+
+                                        @if (session('message'))
+                                            <div class="alert alert-success">
+                                                {{ session('message') }}
                                             </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label>nom de la famille :</label>
-                                                    <input type="text" name="nomfamille" class="form-control"
-                                                        placeholder="nomfamille">
-                                                    @error('nomfamille')
-                                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label>telephone:</label>
-                                                    <input type="number" name="telephone" class="form-control"
-                                                        placeholder=" num telephone">
-                                                    @error('Telephone')
-                                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label>mail:</label>
-                                                    <input type="email" name="mail" class="form-control"
-                                                        placeholder=" votre mail">
-                                                    @error('mail')
-                                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label> ville:</label>
-                                                    <input type="text" name="ville" class="form-control"
-                                                        placeholder="ville">
-                                                    @error('ville')
-                                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label>pays:</label>
-                                                    <input type="text" name="pays" class="form-control"
-                                                        placeholder="pays">
-                                                    @error('pays')
-                                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label>region:</label>
-                                                    <input type="text" name="region" class="form-control"
-                                                        placeholder="region">
-                                                    @error('region')
-                                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label>code postal:</label>
-                                                    <input type="number" name="codepostal" class="form-control"
-                                                        placeholder="codepostal">
-                                                    @error('codepostal')
-                                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label>remarque:</label>
-                                                    <input type="text" name="remarque" class="form-control"
-                                                        placeholder="remarque">
-                                                    @error('remarque')
-                                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-light px-5"
-                                                style="font-size:13px ; background-color:rgb(57, 177, 97) ; color:rgb(243, 243, 245) ; float: right ">Terminer</button>
-                                        </div>
-                                    </form>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-</main>
+    </main>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
 
 
 <!-- Scripts -->

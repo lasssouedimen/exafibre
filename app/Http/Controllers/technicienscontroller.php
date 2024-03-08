@@ -30,7 +30,8 @@ class technicienscontroller extends Controller
             'Datedébut'=>$request->Datedébut,
             'mail'=>$request->mail,
            ]);
-         return redirect(route('Techniciens.index'))->with('success', 'crée avec succée !');
+           $message = $request->nom . ' crée avec succée !'; 
+         return redirect(route('Techniciens.index'))->with('message', $message);
     }
 
     public function edit(Techniciens $technicien)
@@ -47,8 +48,9 @@ public function show(Techniciens $technicien)
 
 public function update(Request $request, Techniciens $Technicien )
 {
-    $Technicien->update($request->all());       
-    return redirect()->route('Techniciens.index');
+    $Technicien->update($request->all());  
+ 
+    return redirect()->route('Techniciens.index')->with('modifier');
    
 }
 

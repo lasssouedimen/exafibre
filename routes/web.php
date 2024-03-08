@@ -3,8 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\technicienscontroller;
-use App\Http\Controllers\clientdemcontroller;
-
+use App\Http\Controllers\ClientdemandesController;
+use App\Http\Controllers\DemandesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,5 +31,10 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('Techniciens', technicienscontroller::class);
-Route::resource('clientdem', clientdemcontroller::class);
+Route::resource('clientdemandes', ClientdemandesController::class);
+Route::resource('demandes', DemandesController::class);
+Route::get('/demandes.affectation', [DemandesController::class, 'valider'])->name('affectation.valider');
+Route::get( '/demandes/detaille/{id}',[DemandesController::class, 'afficher'])->name('detaille.afficher');
+Route::get('/demandes/index/{id}/{etat}', [DemandesController::class, 'changeetat'])->name('index.changeetat');
+
 require __DIR__.'/auth.php';
