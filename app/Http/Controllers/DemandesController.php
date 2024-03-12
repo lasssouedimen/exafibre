@@ -53,38 +53,12 @@ class DemandesController extends Controller
         
     }
    
-    public function changeetat($id, $etat)
-{
-    $clientdemande = Clientdemandes::find($id);
-
-    if (!$clientdemande) {
-        // Gérer le cas où la demande n'est pas trouvée
-        // Vous pouvez retourner une vue d'erreur ou rediriger l'utilisateur
-    }
-
-    // Mettre à jour l'état en fonction de la valeur passée
-    switch ($etat) {
-        case 0:
-            $clientdemande->etat = "En cours";
-            break;
-        case 1:
-            $clientdemande->etat = "Refusée";
-            break;
-        case 2:
-            $clientdemande->etat = "Validée";
-            break;
-        default:
-            // Gérer le cas où l'état n'est pas reconnu
-            // Vous pouvez retourner une vue d'erreur ou rediriger l'utilisateur
-    }
-
-    // Sauvegarder les modifications
-    $clientdemande->save();
-
-    // Rediriger ou retourner une vue appropriée
-    return view('demandes.detaille', ['clientdemande' => $clientdemande]);
-}
-
+     public function changeEta($id,$val){
+        $clientdemandes = clientdemandes::find($id);
+        $clientdemandes->etat = $val;
+        $clientdemandes->update();
+        return redirect()->route('affectation.valider');
+    } 
 
     /**
      * Display the specified resource.

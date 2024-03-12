@@ -18,5 +18,6 @@ class Clientdemandes extends Model
         'region',
         'codepostal',
         'remarque',
+        'etat'
     ];
 }

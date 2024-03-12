@@ -17,35 +17,53 @@
                                     <th scope="col">nom famille</th>
                                     <th scope="col"> telephone</th>
                                     <th scope="col"> ville</th>
-                                    <th scope="col"> état</th>
+                                    <th scope="col"> </th>
+                                    <th scope="col" > état</th>
                                     <th> action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($clientdemandes as $clientdemande)
-                                    <tr>
-                                        <td style="font-size:12px">{{ $clientdemande->prenom }}</td>
-                                        <td style="font-size:12px">{{ $clientdemande->nomfamille }}</td>
-                                        <td style="font-size:12px">{{ $clientdemande->telephone }}</td>
-                                        <td style="font-size:12px">{{ $clientdemande->ville }}</td>
-                                        <td>@if($clientdemande->etat == 0)
-                                            <p>État de la demande : En cours</p>
+                                    @if ($clientdemande->etat == 0)
+                                        <tr>
                                         @elseif($clientdemande->etat == 1)
-                                            <p>État de la demande : Refusée</p>
+                                        <tr style="background-color: hsl(0, 78%, 72%); color: white;">
                                         @elseif($clientdemande->etat == 2)
-                                            <p>État de la demande : Validée</p>
+                                        <tr style="background-color: rgb(114, 216, 114); color: white;">
+                                    @endif
+
+                                    <td>{{ $clientdemande->prenom }}</td>
+                                    <td>{{ $clientdemande->nomfamille }}</td>
+                                    <td >{{ $clientdemande->telephone }}</td>
+                                    <td >{{ $clientdemande->ville }}</td>
+                                    <td>
+                                        @if ($clientdemande->etat == 0)
+                                            <td>En cours</td>
+                                        @elseif($clientdemande->etat == 1)
+                                            <td>Refusée</td>
+                                        @elseif($clientdemande->etat == 2)
+                                            <td>Validée</td>
                                         @endif
-                                        <td> 
-                                            
-                                            <a  href="{{ route('affectation.valider', $clientdemande->id) }}"  style="font-size:12px" class="btn btn-success btn-sm">valider</a>           
-                                            <button type="button" style="font-size:12px" class="btn btn-danger btn-sm"  onclick="refuserDemande(1)">refuser</button>
-                                            <a  href="{{ route('detaille.afficher', $clientdemande->id) }}" style="font-size:12px" class="btn btn-primary btn-sm">voir</a>
-                                        </td>
-                                        </tr>
+                                    </td>
+                                   
+                                    <td>
+                                        @if ($clientdemande->etat == 0)
+                                            <a href="{{ route('clientdemandes.changeEta', ['id' => $clientdemande->id, 'val' => 2]) }}"
+                                                style="font-size:12px" class="btn btn-success btn-sm">valider</a>
+                                            <a href="{{ route('clientdemandes.changeEta', ['id' => $clientdemande->id, 'val' => 1]) }}"
+                                                style="font-size:12px" class="btn btn-danger btn-sm">refuser</a>
+                                            <a href="{{ route('detaille.afficher', $clientdemande->id) }}"
+                                                style="font-size:12px" class="btn btn-primary btn-sm">voir</a>
+                                        @else
+                                            <a href="{{ route('detaille.afficher', $clientdemande->id) }}"
+                                                style="font-size:12px" class="btn btn-primary btn-sm">voir</a>
+                                        @endif
+                                    </td>
+                                    
                                 @endforeach
                             </tbody>
                         </table>
-  
+
 
                     </div> <!-- /.table-stats -->
                 </div>
@@ -55,5 +73,3 @@
 </main>
 
 @include('layout.footer')
-
->

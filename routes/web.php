@@ -33,8 +33,11 @@ Route::middleware('auth')->group(function () {
 Route::resource('Techniciens', technicienscontroller::class);
 Route::resource('clientdemandes', ClientdemandesController::class);
 Route::resource('demandes', DemandesController::class);
-Route::get('/demandes.affectation', [DemandesController::class, 'valider'])->name('affectation.valider');
 Route::get( '/demandes/detaille/{id}',[DemandesController::class, 'afficher'])->name('detaille.afficher');
 Route::get('/demandes/index/{id}/{etat}', [DemandesController::class, 'changeetat'])->name('index.changeetat');
+
+Route::get('clientdemandes/changeEta/{id}/{val}', [DemandesController::class, 'changeEta'])->name('clientdemandes.changeEta');
+Route::get('/demandes.affectation', [DemandesController::class, 'valider'])->name('affectation.valider');
+
 
 require __DIR__.'/auth.php';

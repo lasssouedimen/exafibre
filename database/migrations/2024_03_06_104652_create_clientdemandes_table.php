@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('region')->nullable();
             $table->integer('codepostal')->nullable();
             $table->string('remarque')->nullable();
-            
+            $table->string('etat')->nullable();
             $table->timestamps();
         });
     }
