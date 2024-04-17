@@ -17,6 +17,7 @@
                                     <th scope="col">nom famille</th>
                                     <th scope="col"> telephone</th>
                                     <th scope="col"> ville</th>
+                                    <th scope="col"> date de creation</th>
                                     <th scope="col"> </th>
                                     <th scope="col" > état</th>
                                     <th> action</th>
@@ -36,6 +37,7 @@
                                     <td>{{ $clientdemande->nomfamille }}</td>
                                     <td >{{ $clientdemande->telephone }}</td>
                                     <td >{{ $clientdemande->ville }}</td>
+                                    <td >{{ $clientdemande->created_at }}</td>
                                     <td>
                                         @if ($clientdemande->etat == 0)
                                             <td>En cours</td>
@@ -46,6 +48,7 @@
                                         @endif
                                     </td>
                                    
+                                    
                                     <td>
                                         @if ($clientdemande->etat == 0)
                                             <a href="{{ route('clientdemandes.changeEta', ['id' => $clientdemande->id, 'val' => 2]) }}"
@@ -53,13 +56,12 @@
                                             <a href="{{ route('clientdemandes.changeEta', ['id' => $clientdemande->id, 'val' => 1]) }}"
                                                 style="font-size:12px" class="btn btn-danger btn-sm">refuser</a>
                                             <a href="{{ route('detaille.afficher', $clientdemande->id) }}"
-                                                style="font-size:12px" class="btn btn-primary btn-sm">voir</a>
+                                                style="font-size:12px ; background-color:  hsl(0, 0%, 0%, 0);" class="btn btn-light px-3">voir</a>
                                         @else
                                             <a href="{{ route('detaille.afficher', $clientdemande->id) }}"
-                                                style="font-size:12px" class="btn btn-primary btn-sm">voir</a>
+                                                style="font-size:12px ; background-color:  hsl(0, 0%, 0%, 0);" class="btn btn-light px-3">voir</a>
                                         @endif
                                     </td>
-                                    
                                 @endforeach
                             </tbody>
                         </table>

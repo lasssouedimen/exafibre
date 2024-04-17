@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Clientdemandes;
 use App\Models\Travail;
 use Illuminate\Http\Request;
 
@@ -12,15 +12,15 @@ class TravailController extends Controller
      */
     public function index()
     {
-        //
+        $clientdemandes = Clientdemandes::where('etat',2)->get();;
+        return view('travailles.index',compact('clientdemandes'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+    { 
     }
 
     /**

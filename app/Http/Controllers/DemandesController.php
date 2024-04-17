@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Clientdemandes;
+    use App\Models\Clientdemandes;
 use App\Models\Demandes;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Notification;
+use App\Models\Techniciens;
 use Illuminate\Support\Facades\Auth;
 
 class DemandesController extends Controller
@@ -40,8 +41,8 @@ class DemandesController extends Controller
     }
 
     public function valider()
-    {
-        return view('demandes.affectation');
+    {     $techniciens = Techniciens::all();
+        return view('demandes.affectation', compact('techniciens'));
         
     }
 
@@ -58,7 +59,9 @@ class DemandesController extends Controller
         $clientdemandes->etat = $val;
         $clientdemandes->update();
         return redirect()->route('affectation.valider');
-    } 
+    }
+     
+    
 
     /**
      * Display the specified resource.

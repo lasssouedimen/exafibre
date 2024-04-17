@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\technicienscontroller;
 use App\Http\Controllers\ClientdemandesController;
 use App\Http\Controllers\DemandesController;
+use App\Http\Controllers\TravailController;
+use App\Http\Controllers\ParkingController;
+    
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +36,8 @@ Route::middleware('auth')->group(function () {
 Route::resource('Techniciens', technicienscontroller::class);
 Route::resource('clientdemandes', ClientdemandesController::class);
 Route::resource('demandes', DemandesController::class);
+Route::resource('parking', ParkingController::class);
+Route::resource('travailles', TravailController::class);
 Route::get( '/demandes/detaille/{id}',[DemandesController::class, 'afficher'])->name('detaille.afficher');
 Route::get('/demandes/index/{id}/{etat}', [DemandesController::class, 'changeetat'])->name('index.changeetat');
 

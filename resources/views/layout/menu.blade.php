@@ -73,25 +73,25 @@
                     <li >
                         <a href="index.html" ><i class="menu-icon fa fa-laptop" ></i>Dashboard </a>
                     </li>
-                    <li v >
+                    <li>
                         <a href="{{route('demandes.index')}}" ><i class="menu-icon fa fa-envelope "></i>Demande</a>
-                       
+                            
                     </li>
                     <li >
                         <a href="{{route('Techniciens.index')}}" > <i class="menu-icon fa  fa-group (alias)"></i>Techniciens</a>
 
                     </li>
                     <li>
-                        <a href="#"> <i class="menu-icon fa fa-server"></i>Travail</a>
+                        <a href="{{route('travailles.index')}}"> <i class="menu-icon fa fa-server"></i>Travail</a>
                     </li>
 
 
                     <li >
-                        <a href="#" > <i class="menu-icon fa fa-truck"></i>Parking</a>
+                        <a href="{{route('parking.index')}}" > <i class="menu-icon fa fa-truck"></i>Parking</a>
                         
                     </li>
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon fa fa-home"></i>stock.
+                        <a href=""> <i class="menu-icon fa fa-home"></i>stock.
                         
                          </a>
                     </li>

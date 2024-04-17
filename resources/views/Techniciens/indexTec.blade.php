@@ -4,7 +4,6 @@
 <main class="content">
 <div id="wrapper">
     <div class="mb-3">
-        <h1 class="h3 d-inline align-middle">TECHNICIENS</h1><a class="badge bg-primary ms-2" ></a>
     </div>  
     <div class="clearfix"></div>
     <div class="content-wrapper">
@@ -50,7 +49,7 @@
                                                 <td>
                                                     <form action="{{ route('Techniciens.destroy',$technicien->id) }}" method="Post">
                                                    
-                                                        <a class="btn btn-light px-3"style="font-size:10px"href="{{ route('Techniciens.edit', $technicien->id) }}">MODIFIER</a>
+                                                        <a class="btn btn-light px-3" style="font-size:10px"href="{{ route('Techniciens.edit', $technicien->id) }}">MODIFIER</a>
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit"
