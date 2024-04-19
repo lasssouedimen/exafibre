@@ -42,8 +42,8 @@
 							<div class="col-xs-12 col-sm-12 col-md-12">
 								<div class="form-group">
 									<label>Code de gps :</label>
-									<input type="text" name="Codegps" class="form-control" placeholder="Codegps">
-									@error('Codegps')
+									<input type="text" name="codegps" class="form-control" placeholder="codegps">
+									@error('codegps')
 										<div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
 									@enderror
 								</div>

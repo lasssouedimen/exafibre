@@ -31,6 +31,14 @@
                     <td>{{ $parking->codegps }}</td>
                     <td>{{ $parking->Matricule }}</td>
                     <td>{{ $parking->kilométrage }} </td>
+                   <!-- <td>
+                        if ($parking->etat == 0)
+                        <td>En deplacement</td>
+                        elseif($parking->etat == 1)
+                         <td>dispo</td>
+                    </td>
+                -->
+
          </div>
             </section>
         </div>

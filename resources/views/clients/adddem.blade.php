@@ -76,10 +76,28 @@
             height: 160px;
         }
     </style>
-</head>
-<main class="d-flex w-100" style="background-image:url(assets/img/icons/logotranspar3.png);">
+     <style>
 
-    <div class="col-lg-6">
+        #form{
+       
+        width: 800px;
+       
+        height: auto;
+       
+        position: absolute;
+       
+        left: 25%;
+       
+       
+        }
+       
+        </style>
+
+</head>
+
+<main class="d-flex w-100"  style="background-image:assets/img/icons/logotranspar3.png">
+
+    <div class="col-lg-6"  id="form">
         <div class="card">
             <div class="card-header">
                 <a href="#" type="submit" class="btn btn-light px-5"
@@ -94,14 +112,14 @@
             <div class="card-body card-block">
                 <form action="{{ route('clientdemandes.store') }}" method="post" enctype="multipart/form-data"
                     class="form-horizontal">
-
+                    @csrf
                     <div class="row form-group">
                         <div class="col col-md-2"><label for="nomfamille" class=" form-control-label">Nom </label></div>
                         <div class="col-12 col-md-4"><input type="text" id="nomfamille" name="nomfamille"
                                 placeholder="nom" class="form-control"></div>
-                        <div class="col col-md-2"><label for="Prenom" class=" form-control-label">Prenom </label>
+                        <div class="col col-md-2"><label for="prenom" class=" form-control-label">Prenom </label>
                         </div>
-                        <div class="col-12 col-md-4"><input type="text" id="Prenom" name="Prenom"
+                        <div class="col-12 col-md-4"><input type="text" id="prenom" name="prenom"
                                 placeholder="prenom" class="form-control"></div>
 
                     </div>
@@ -122,11 +140,11 @@
                         <div class="col-12 col-md-9">
                             <select name="ville" id="ville" class="form-control">
                                 <option value="0">s'il vous plait selectioner votre ville</option>
-                                <option value="1">Marseille</option>
-                                <option value="2">Lyon</option>
-                                <option value="3">Toulouse </option>
-                                <option value="4">Nice </option>
-                                <option value="5">paris </option>
+                                <option value="Marseille">Marseille</option>
+                                <option value="Lyon">Lyon</option>
+                                <option value="Toulouse">Toulouse </option>
+                                <option value="Nice">Nice </option>
+                                <option value="paris">paris </option>
                             </select>
                         </div>
                     </div>
@@ -137,7 +155,7 @@
                         <div class="col-12 col-md-9">
                             <select name="pays" id="pays" class="form-control-sm form-control">
                                 <option value="0">s'il vous plait selectionner votre pays</option>
-                                <option value="1">france </option>
+                                <option value="france">france </option>
 
                             </select>
                         </div>
@@ -476,194 +494,3 @@
 </html>
 
 
-
-<div class="container d-flex flex-column">
-    <div class="row vh-100">
-        <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
-            <div class="d-table-cell align-middle">
-                <div class="card" style="background-color:rgb(243, 242, 248)  background-image:url(assets/img/icons/logotranspar3.png);">
-                    
-                    <div class="card-body">
-                        <div class="m-sm-4">
-                            <div class="text-center">
-              
-          
-                    <div class="col-lg-12">
-                        
-                            <div class="card-body">
-                               <a class="badge bg-primary ms-2"></a>
-                            </div>
-                            
-                            <div class="clearfix"></div>
-                            <div class="content-wrapper">
-                                <div class="container-fluid">
-                                    <div class="row mt-3">
-                                            <div class="card-header">
-                                                <a href="#" type="submit" class="btn btn-light px-5"
-                                                    style="font-size:13px; background-color:rgb(57, 177, 97) ;color:rgb(243, 243, 245) ; float: right">
-                                                    MRT Energy</a>
-                                                <div class="card-header"><strong>Demande</strong><small>
-                                                    Service</small>
-                                                </div>
-
-                                            </div>
-                                            <div class="card-body card-block">
-                                                @if ($message = Session::get('success'))
-                                                    <div class="alert alert-success">
-                                                        <p>{{ $message }}</p>
-                                                    </div>
-                                                @endif
-
-                                                <form action="{{ route('clientdemandes.store') }}" method="post"
-                                                    class="form-horizontal">
-                                                    @csrf
-                                                    <div class="row form-group">
-                                                        <div class="col-4"><label>prenom : </label><input
-                                                                name="prenom" type="text" class="form-control">
-                                                            @error('prenom')
-                                                                <div class="alert alert-danger mt-1 mb-1">
-                                                                    {{ $message }}
-                                                                </div>
-                                                            @enderror
-                                                        </div>
-                                                        <div class="col-8"><label>nom de famille :</label><input
-                                                                name="nomfamille" type="text"
-                                                                class="form-control">
-                                                            @error('nomdelafamille')
-                                                                <div class="alert alert-danger mt-1 mb-1">
-                                                                    {{ $message }}
-                                                                </div>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="row form-group">
-                                                        <div class="col-5"> <label>telephone:</label><input
-                                                                name="telephone" type="text"
-                                                                class="form-control">
-                                                            @error('telephone')
-                                                                <div class="alert alert-danger mt-1 mb-1">
-                                                                    {{ $message }}
-                                                                </div>
-                                                            @enderror
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="row form-group">
-                                                        <div class="col-5"> <label>mail:</label><input
-                                                                name="mail" type="mail" class="form-control">
-                                                            @error('mail')
-                                                                <div class="alert alert-danger mt-1 mb-1">
-                                                                    {{ $message }}
-                                                                </div>
-                                                            @enderror
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div class="row form-group">
-
-                                                        <div class="col-7">
-                                                            <div class="row form-group">
-                                                                <div class="col col-md-3"><label for="ville"
-                                                                        class=" form-control-label">ville :</label>
-                                                                </div>
-                                                                <div class="col-12 col-md-9">
-                                                                    <select name="ville" id="ville"
-                                                                        class="form-control-sm form-control">
-                                                                        <option value="0">selectioner votre
-                                                                            ville
-                                                                        </option>
-                                                                        <option value="Marseille">Marseille</option>
-                                                                        <option value="Lyon">Lyon</option>
-                                                                        <option value="Toulouse">Toulouse</option>
-                                                                        <option value="Nice">Nice</option>
-                                                                    </select>
-                                                                    @error('ville')
-                                                                        <div class="alert alert-danger mt-1 mb-1">
-                                                                            {{ $message }}
-                                                                        </div>
-                                                                    @enderror
-                                                                </div>
-
-
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-7">
-                                                            <div class="row form-group">
-                                                                <div class="col col-md-3"><label for="pays"
-                                                                        class=" form-control-label">pays :</label>
-                                                                </div>
-                                                                <div class="col-12 col-md-9">
-                                                                    <select name="pays" id="pays"
-                                                                        class="form-control-sm form-control">
-                                                                        <option value="0">selectioner votre
-                                                                            pays
-                                                                        </option>
-                                                                        <option value="france">france</option>
-
-                                                                    </select>
-                                                                    @error('pays')
-                                                                        <div class="alert alert-danger mt-1 mb-1">
-                                                                            {{ $message }}
-                                                                        </div>
-                                                                    @enderror
-                                                                </div>
-
-
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row form-group">
-                                                        <div class="col-8"><label
-                                                                for="region">region:</label><input
-                                                                name="region" type="text"
-                                                                class="form-control">
-                                                            @error('region')
-                                                                <div class="alert alert-danger mt-1 mb-1">
-                                                                    {{ $message }}
-                                                                </div>
-                                                            @enderror
-                                                        </div>
-                                                        <div class="col-4"  class="form-control"> <label>code postal:</label><input
-                                                                name="codepostal"type="number"
-                                                               >
-                                                            @error('codepostal')
-                                                                <div class="alert alert-danger mt-1 mb-1">
-                                                                    {{ $message }}
-                                                                </div>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="row form-group">
-                                                        <div class="col col-md-3"><label for="remarque"
-                                                                class=" form-control-label">Remarque</label></div>
-                                                        <div class="col-12 col-md-9">
-                                                            <textarea name="remarque" id="remarque" rows="9" class="form-control">@error('codepostal')
-                                                                <div class="alert alert-danger mt-1 mb-1">
-                                                                    {{ $message }}
-                                                                </div>
-                                                            @enderror
-                                                        </textarea>
-                                                        </div>
-                                                    </div>
-                                                    <button type="submit" class="btn btn-light px-5"
-                                                        style="font-size:13px ; background-color:rgb(57, 177, 97) ; color:rgb(243, 243, 245) ; float: right ">Terminer</button>
-
-                                                </form>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
