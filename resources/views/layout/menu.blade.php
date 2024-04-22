@@ -9,7 +9,9 @@
 
     <link rel="apple-touch-icon" href="{{asset('https://i.imgur.com/QRAUqs9.png')}}">
     <link rel="shortcut icon" href="{{asset('assets/img/icons/logotrans.png')}}">
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="https://cdn.datatables.net/2.0.5/css/dataTables.bootstrap5.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{asset('https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css')}}">
     <link rel="stylesheet" href="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css')}}">
@@ -73,10 +75,14 @@
                     <li >
                         <a href="index.html" ><i class="menu-icon fa fa-laptop" ></i>Dashboard </a>
                     </li>
+                    <li class="menu-title">client</li>
+
                     <li>
                         <a href="{{route('demandes.index')}}" ><i class="menu-icon fa fa-envelope "></i>Demande</a>
                             
                     </li>
+                    <li class="menu-title">mrt energie</li>
+
                     <li >
                         <a href="{{route('Techniciens.index')}}" > <i class="menu-icon fa  fa-group (alias)"></i>Techniciens</a>
 
@@ -90,11 +96,14 @@
                         <a href="{{route('parking.index')}}" > <i class="menu-icon fa fa-truck"></i>Parking</a>
                         
                     </li>
+                    <li class="menu-title">materiel</li>
                     <li>
+                        
                         <a href=""> <i class="menu-icon fa fa-home"></i>stock.
                         
                          </a>
                     </li>
+                    <li class="menu-title">analyse</li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" > <i class="menu-icon fa fa-bar-chart-o"></i>Analyse de donnees</a>
                         <ul class="sub-menu children dropdown-menu">

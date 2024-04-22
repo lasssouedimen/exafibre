@@ -10,6 +10,7 @@ class Techniciens extends Model
     use HasFactory;
     protected $fillable = [
             'nom',
+            'prenom',
             'Adresse',
             'Tel',
             'Age',

@@ -21,16 +21,20 @@
                                     </div>
                                 @endif
                             </div>
-    <div class="row">
+                            
+    <div class="row" style=" color: black;">
         @foreach ($parking as $parking)
-        <div class="col">
+        
+        <div class="col-lg-2">
             <section class="card">
                 <div class="card-body text-secondary">
-                  
-                    <td>{{ $parking->Marque }}</td>
-                    <td>{{ $parking->codegps }}</td>
-                    <td>{{ $parking->Matricule }}</td>
-                    <td>{{ $parking->kilométrage }} </td>
+                  <tr>
+                    <td><i class="fa ti-car" style="color:black"></i> {{ $parking->Marque }} </td> <br>
+                    <td><i class="fa ti-pin" style="color:black"></i> {{ $parking->codegps }}</td> <br>
+                    <td><i class="fa ti-layout-cta-right" style="color:black"></i> {{ $parking->Matricule }}</td> <br>
+                    <td><i class="fa ti-dashboard" style="color:black"></i> {{ $parking->kilométrage }} </td> <br>
+                  </tr>
+                
                    <!-- <td>
                         if ($parking->etat == 0)
                         <td>En deplacement</td>
@@ -38,7 +42,7 @@
                          <td>dispo</td>
                     </td>
                 -->
-
+                  </tr>
          </div>
             </section>
         </div>
@@ -49,3 +53,12 @@
 </main>
 
 @include('layout.footer')
+<style>
+    td {
+        color: black;
+    }
+    </style>
+
+
+
+    

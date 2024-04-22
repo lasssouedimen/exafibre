@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('Techniciens', function (Blueprint $table) {
             $table->id();
             $table->string('nom')->nullable();
+            $table->string('prenom')->nullable();
             $table->string('adresse')->nullable();  
             $table->integer('tel')->nullable();
             $table->integer('Age')->nullable();

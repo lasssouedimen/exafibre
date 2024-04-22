@@ -1204,7 +1204,7 @@ header .form-inline {
   border-radius: 5px;
   padding: 0;
   border: 0px solid transparent;
-  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.945);
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.08); }
   .card .box-title {
     font-weight: 600;
@@ -1282,7 +1282,7 @@ header .form-inline {
     width: 100%; }
     .card .card-top .card-title,
     .card .card-footer .card-title {
-      color: #343a40;
+      color: #080808;
       font-size: .875em;
       font-weight: 600;
       padding-top: 5px;

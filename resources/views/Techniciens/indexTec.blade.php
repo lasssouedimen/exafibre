@@ -12,9 +12,10 @@
                 <div class="col-lg-12">
                     <div class="card" style="background-color: rgba(255, 255, 255, 0.488);">
                         <div class="card-body">
-                                 
                             <div class="form-group">
-                                 <a href="{{ route('Techniciens.create') }}"  class="btn btn-light px-5" style="font-size:13px ; background-color:rgb(57, 177, 97) ;color:rgb(243, 243, 245) ; float: right "> Ajouter</a>
+                                 <a href="{{ route('Techniciens.create') }}"  class="btn btn-light px-2" style="font-size:12px ; background-color:rgb(57, 177, 97) ;color:rgb(243, 243, 245) ; float: right ; margin-top:8px ">  <i class="bi bi-plus-circle-fill"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                                  </svg> Ajouter</a>
                                  <div class="card-header"><strong>Techniciens</strong></div>
                                  <div class="card-body card-block">
                                                      </div>
@@ -24,9 +25,11 @@
                                     </div>
                                 @endif
                             </div>
-                            <table id="bootstrap-data-table" class="table table-striped table-bordered">                                <thead>
+                            <table id="example" class="table table-striped" style="width:100%">
+                                <thead>
                                     <tr>
                                         <th scope="col">Nom </th>
+                                        <th scope="col">prenom </th>
                                         <th scope="col">Adresse</th>
                                         <th scope="col"> Tel</th>
                                         <th scope="col">Age</th>
@@ -40,6 +43,7 @@
                                     @foreach ($techniciens as $technicien)
                                             <tr>
                                                 <td>{{ $technicien->nom }}</td>
+                                                <td>{{ $technicien->prenom }}</td>
                                                 <td>{{ $technicien->adresse }}</td>
                                                 <td>{{ $technicien->tel }}</td>
                                                 <td>{{ $technicien->Age }} </td>
@@ -53,7 +57,7 @@
                                                         @method('DELETE')
                                                         <button type="submit"
                                                             class="btn btn-light px-3"style="font-size:10px"
-                                                            class="btn btn-danger">SUPPRIMER</button>
+                                                            class="btn btn-danger">ARCHIVER</button>
                                                     </form>
                                                 </td>
                                                 
@@ -74,28 +78,11 @@
 </main>
 @include('layout.footer')
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
-    <script src="assets/js/main.js"></script>
-
-
-    <script src="assets/js/lib/data-table/datatables.min.js"></script>
-    <script src="assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
-    <script src="assets/js/lib/data-table/dataTables.buttons.min.js"></script>
-    <script src="assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
-    <script src="assets/js/lib/data-table/jszip.min.js"></script>
-    <script src="assets/js/lib/data-table/vfs_fonts.js"></script>
-    <script src="assets/js/lib/data-table/buttons.html5.min.js"></script>
-    <script src="assets/js/lib/data-table/buttons.print.min.js"></script>
-    <script src="assets/js/lib/data-table/buttons.colVis.min.js"></script>
-    <script src="assets/js/init/datatables-init.js"></script>
 
 
     <script type="text/javascript">
         $(document).ready(function() {
-          $('#bootstrap-data-table-export').DataTable();
+          $('#example').DataTable();
       } );
   </script>
 

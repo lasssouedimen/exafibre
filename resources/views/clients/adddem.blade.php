@@ -116,29 +116,29 @@
                     <div class="row form-group">
                         <div class="col col-md-2"><label for="nomfamille" class=" form-control-label">Nom </label></div>
                         <div class="col-12 col-md-4"><input type="text" id="nomfamille" name="nomfamille"
-                                placeholder="nom" class="form-control"></div>
+                                placeholder="nom" class="form-control" required></div>
                         <div class="col col-md-2"><label for="prenom" class=" form-control-label">Prenom </label>
                         </div>
                         <div class="col-12 col-md-4"><input type="text" id="prenom" name="prenom"
-                                placeholder="prenom" class="form-control"></div>
+                                placeholder="prenom" class="form-control" required></div>
 
                     </div>
                     <div class="row form-group">
                         <div class="col col-md-3"><label for="mail" class=" form-control-label">Mail</label></div>
                         <div class="col-12 col-md-9"><input type="email" id="mail" name="mail"
-                                placeholder="Enter Email" class="form-control"></div>
+                                placeholder="Enter Email" class="form-control" required></div>
                     </div>
                     <div class="row form-group">
                         <div class="col col-md-3"><label for="telephone" class=" form-control-label">numero
                                 telephonique</label></div>
                         <div class="col-12 col-md-9"><input type="number" id="telephone" name="telephone"
-                                placeholder="Enter number" class="form-control"></div>
+                                placeholder="Enter number" class="form-control" required></div>
                     </div>
 
                     <div class="row form-group">
-                        <div class="col col-md-3"><label for="ville" class=" form-control-label">ville</label></div>
+                        <div class="col col-md-3"><label for="ville" class=" form-control-label" >ville</label></div>
                         <div class="col-12 col-md-9">
-                            <select name="ville" id="ville" class="form-control">
+                            <select name="ville" id="ville" class="form-control" required>
                                 <option value="0">s'il vous plait selectioner votre ville</option>
                                 <option value="Marseille">Marseille</option>
                                 <option value="Lyon">Lyon</option>
@@ -150,10 +150,10 @@
                     </div>
 
                     <div class="row form-group">
-                        <div class="col col-md-3"><label for="pays" class=" form-control-label">pays</label>
+                        <div class="col col-md-3"><label for="pays" class=" form-control-label" >pays</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <select name="pays" id="pays" class="form-control-sm form-control">
+                            <select name="pays" id="pays" class="form-control-sm form-control" required>
                                 <option value="0">s'il vous plait selectionner votre pays</option>
                                 <option value="france">france </option>
 
@@ -162,10 +162,10 @@
                     </div>
 
                     <div class="row form-group">
-                        <div class="col col-md-3"><label for="codepostal" class=" form-control-label">code postal
+                        <div class="col col-md-3"><label for="codepostal" class=" form-control-label" >code postal
                             </label></div>
                         <div class="col col-md-9">
-                            <select name="codepostal" id="codepostal" multiple="" class="form-control">
+                            <select name="codepostal" id="codepostal" multiple="" class="form-control" required>
                                 <option value="1">75001</option>
                                 <option value="2">75002</option>
                                 <option value="3">75003</option>
@@ -195,7 +195,7 @@
                         <div class="col col-md-3"><label for="remarque" class=" form-control-label">remarque</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <textarea name="remarque" id="remarque" rows="9" placeholder="Content..." class="form-control"></textarea>
+                            <textarea name="remarque" id="remarque" rows="9" placeholder="Content..." class="form-control" required></textarea>
                         </div>
                     </div>
                     <div class="card-footer">

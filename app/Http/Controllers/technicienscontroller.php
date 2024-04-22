@@ -24,6 +24,7 @@ class technicienscontroller extends Controller
     {   
         $tech=Techniciens::create([
             'nom'=>$request->nom,
+            'prenom'=>$request->prenom,
             'Adresse'=>$request->Adresse,
             'Tel'=>$request->Tel,
             'Age'=>$request->Age,

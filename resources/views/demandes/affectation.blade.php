@@ -28,7 +28,7 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Nom </th>
-                                            <th scope="col"> Tel</th>
+                                            <th scope="col"> prenom</th>
                                             <th> action</th>
                                         </tr>
                                     </thead>
@@ -36,7 +36,7 @@
                                         @foreach ($techniciens as $technicien)
                                             <tr>
                                                 <td>{{ $technicien->nom }}</td>
-                                                <td>{{ $technicien->tel }}</td>
+                                                <td>{{ $technicien->prenom }}</td>
                                                 <td> <a href="">affecter</a></td>
                                             </tr>
                                         @endforeach

@@ -58,7 +58,7 @@ class DemandesController extends Controller
         $clientdemandes = clientdemandes::find($id);
         $clientdemandes->etat = $val;
         $clientdemandes->update();
-        return redirect()->route('affectation.valider');
+        return redirect()->route('demandes.index');
     }
      
     
