@@ -20,6 +20,8 @@ return new class extends Migration
             $table->integer('Age')->nullable();
             $table->string('Datedébut')->nullable();
             $table->string('mail')->nullable();  
+            $table->integer('arch')->default(0);
+            $table->integer('dispo')->default(0);
             $table->timestamps();
             
         });

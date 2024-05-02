@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-    use App\Models\Clientdemandes;
+use App\Models\Clientdemandes;
 use App\Models\Demandes;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -18,7 +18,7 @@ class DemandesController extends Controller
     public function index()
     {
         $clientdemandes = Clientdemandes::all();
-        return view('demandes.index',compact('clientdemandes'));
+        return view('demandes.index', compact('clientdemandes'));
     }
 
     /**
@@ -26,7 +26,7 @@ class DemandesController extends Controller
      */
     public function store(Request $request)
     {
-       
+
         // Logique de traitement de la demande
 
         // Créer une notification
@@ -37,31 +37,30 @@ class DemandesController extends Controller
         $notification->save();
 
         return redirect()->back()->with('success', 'Demande envoyée avec succès');
-    
     }
 
-    public function valider()
-    {     $techniciens = Techniciens::all();
-        return view('demandes.affectation', compact('techniciens'));
-        
-    }
 
     public function afficher($id)
     {
         $clientdemandes = clientdemandes::find($id);
         return view('demandes.detaille', ['clientdemandes' => $clientdemandes]);
-    
-        
     }
-   
-     public function changeEta($id,$val){
+
+    public function changeEta($id, $val)
+    {
         $clientdemandes = clientdemandes::find($id);
         $clientdemandes->etat = $val;
         $clientdemandes->update();
         return redirect()->route('demandes.index');
     }
-     
-    
+
+    public function affectation($id)
+    {
+        $techniciens = Techniciens::all();
+        return view('demandes.affectation', compact('id','techniciens'));
+    }
+
+
 
     /**
      * Display the specified resource.

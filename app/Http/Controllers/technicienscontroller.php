@@ -9,8 +9,8 @@ class technicienscontroller extends Controller
 {
     
     public function index ()
-    {
-        $techniciens = Techniciens::all();
+    {        
+        $techniciens = Techniciens::where('arch',0)->get();
         return view('Techniciens.indexTec',compact('techniciens'));
     }
    
@@ -59,6 +59,13 @@ public function destroy(Techniciens $technicien)
 {
     $technicien->delete();
     return redirect()->route('Techniciens.index')->with('success','techniciens  supprimer');
+
+}
+public function archive($id , $etat){
+    $technicien = techniciens::find($id);
+    $technicien->arch=$etat;
+    $technicien->update();
+    return redirect()->route('Techniciens.index')->with('success','techniciens  archiver');
 
 }
 }

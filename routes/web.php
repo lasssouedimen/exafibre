@@ -7,6 +7,8 @@ use App\Http\Controllers\ClientdemandesController;
 use App\Http\Controllers\DemandesController;
 use App\Http\Controllers\TravailController;
 use App\Http\Controllers\ParkingController;
+use App\Http\Controllers\StockController;
+
     
 /*
 |--------------------------------------------------------------------------
@@ -38,11 +40,14 @@ Route::resource('clientdemandes', ClientdemandesController::class);
 Route::resource('demandes', DemandesController::class);
 Route::resource('parking', ParkingController::class);
 Route::resource('travailles', TravailController::class);
+Route::resource('stocks', StockController::class);
+
 Route::get( '/demandes/detaille/{id}',[DemandesController::class, 'afficher'])->name('detaille.afficher');
 Route::get('/demandes/index/{id}/{etat}', [DemandesController::class, 'changeetat'])->name('index.changeetat');
 
 Route::get('clientdemandes/changeEta/{id}/{val}', [DemandesController::class, 'changeEta'])->name('clientdemandes.changeEta');
-Route::get('/demandes.affectation', [DemandesController::class, 'valider'])->name('affectation.valider');
+Route::get('/demandes_affectation/{id}', [DemandesController::class, 'affectation'])->name('affectation.valider');
+Route::get('/techniciens/archive/{id}/{etat}', [technicienscontroller::class, 'archive'])->name('technicien.archive');
 
 
 require __DIR__.'/auth.php';

@@ -16,5 +16,7 @@ class Techniciens extends Model
             'Age',
             'Datedébut',
             'mail',
+            'arch',
+            'dispo',
     ];
 }

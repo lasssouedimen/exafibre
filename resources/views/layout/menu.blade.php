@@ -99,7 +99,7 @@
                     <li class="menu-title">materiel</li>
                     <li>
                         
-                        <a href=""> <i class="menu-icon fa fa-home"></i>stock.
+                        <a href="{{route('stocks.index')}}"> <i class="menu-icon fa fa-home"></i>stock
                         
                          </a>
                     </li>

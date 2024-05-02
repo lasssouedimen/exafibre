@@ -58,6 +58,8 @@ class ParkingController extends Controller
      */
     public function destroy(parking $parking)
     {
-        //
+        
+    $parking->delete();
+    return redirect()->route('parking.index')->with('success');
     }
 }
