@@ -18,10 +18,12 @@ class Travail extends Model
     public function demandes()
     { 
         return $this->belongsTo(Clientdemandes::class,"id_demande"); 
-    }public function techniciens()
-    { 
-        return $this->belongsTo(Techniciens::class,"id_technicien"); 
-    }public function parkings()
+    }
+    public function techniciens()
+{ 
+    return $this->belongsTo(Techniciens::class, 'id_technicien'); 
+}
+    public function parkings()
     { 
         return $this->belongsTo(parking::class,"id_parking"); 
     }

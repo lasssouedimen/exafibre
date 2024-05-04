@@ -15,8 +15,8 @@ class TravailController extends Controller
      */
     public function index()
     {
-        $clientdemandes = Clientdemandes::where('etat',2)->get();dd($clientdemandes);
-        return view('travailles.index',compact('clientdemandes'));
+        $travailles = Travail::all();
+        return view('travailles.index',compact('travailles'));
     }
 
     /**

@@ -25,12 +25,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($clientdemandes as $clientdemande)
+                                        @foreach ($travailles as $travaille)
                                                 <tr>
-                                                    <td>{{ $clientdemande->techniciens->nom }} {{ $clientdemande->techniciens->prenom }}</td>
-                                                    <td>{{ $clientdemande->parkings->Marque}} {{ $clientdemande->parkings->Matricule}}</td>
-                                                    <td><strong>client:</strong>{{ $clientdemande->demandes->nomfamille}} {{ $clientdemande->demandes->prenom}} <br> 
-                                                        <strong>remarque:{{ $clientdemande->demandes->remarque}}</strong></td>
+                                                    <td>{{ $travaille->techniciens->nom }} {{ $travaille->techniciens->prenom }}</td>
+                                                    <td>{{ $travaille->parkings->Marque}} {{ $travaille->parkings->Matricule}}</td>
+                                                    <td><strong>client:</strong>{{ $travaille->demandes->nomfamille}} {{ $travaille->demandes->prenom}} <br> 
+                                                        <strong>remarque:{{ $travaille->demandes->remarque}}</strong></td>
                                                     <td></td>
                                                 </tr>
                                             
