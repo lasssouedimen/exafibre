@@ -18,22 +18,22 @@
                                 <table id="example" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Prénom</th>
-                                            <th scope="col">Téléphone</th>
-                                            <th scope="col">Ville</th>
-                                            <th>Technicien</th>
+                                            <th scope="col">technicien</th>
+                                            <th scope="col">voiture</th>
+                                            <th scope="col">demande</th>
+                                            <th>action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($clientdemandes as $clientdemande)
-                                            @if ($clientdemande->etat == 2)
                                                 <tr>
-                                                    <td>{{ $clientdemande->prenom }}</td>
-                                                    <td>{{ $clientdemande->telephone }}</td>
-                                                    <td>{{ $clientdemande->ville }}</td>
+                                                    <td>{{ $clientdemande->techniciens->nom }} {{ $clientdemande->techniciens->prenom }}</td>
+                                                    <td>{{ $clientdemande->parkings->Marque}} {{ $clientdemande->parkings->Matricule}}</td>
+                                                    <td><strong>client:</strong>{{ $clientdemande->demandes->nomfamille}} {{ $clientdemande->demandes->prenom}} <br> 
+                                                        <strong>remarque:{{ $clientdemande->demandes->remarque}}</strong></td>
                                                     <td></td>
                                                 </tr>
-                                            @endif
+                                            
                                         @endforeach
                                     </tbody>
                                 </table>

@@ -24,9 +24,7 @@
                     <a href="{{ url('/dashboard') }}"
                         class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                 @else
-                    <a href="{{ route('login') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">@lang('Log in')</a>
-
+                   
                     @if (Route::has('register'))
                         <a href="{{ route('clientdemandes.index') }}"
                             class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">@lang('Demande service')</a>
@@ -34,28 +32,15 @@
                 @endauth
             </div>
         @endif
-        <div class="bloc-top">
-            <div style="background-color:#3353ff;" class= "mhp-container d-flex justify-content-space-between
-                d-block-mob">
-                <div>
-                    <h1  style="color:aliceblue ; font-family:Inter ;
-                    font-style:normal ;" >
-                        MRT ENERGY
-                    </h1>
-                    <div class="d-flex mt-32 ">
-                        <div style=" padding: 32px 0;  position: relative;    object-fit: contain;
-                        width: 188px;    "
-    
-                            class="logo-soc d-flex justify-content-center align-items-center bg-color-white border-radius-8">
-                            <img src="https://www.hellopro.fr/images/logo/logo_1564920.jpg" alt="MRT ENERGY"
-                                title="MRT ENERGY">
-                        </div>
-                        <div class="espace-prospect"></div>
-                    </div>
-                </div>
+        <img src="assets/img/icons/logo_1564920.jpg" alt="Charles Hall" class="img-fluid rounded-circle" style="float:right ; margin-top:250px ;" />
+       <div> <p style="margin-top:250px ; color:#005eff; font-size: 1.2rem;text-align: center">MRT ENERGIE, société par actions simplifiée, immatriculée sous le SIREN 844079236, est en activité depuis 5 ans. Établie à GARGES-LES-GONESSE (95140), elle est spécialisée dans le secteur d'activité des télécommunications filaires. Son effectif est compris entre 10 et 19 salariés. Sur l'année 2022 elle réalise un chiffre d'affaires de 6 608 700,00 €.
+         </p></div> <div>
+            <a href="{{ route('login') }}"
+            class="btn btn-light px-5 " style="  width: 20%;
+            background-color: rgb(64, 33, 235);
+            color: rgb(243, 243, 245);
+           " >@lang('Log in')</a></div>
 
-            </div>
-        </div>
 </body>
 
 </html>

@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('travails', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_demande')->nullable();
+            $table->integer('id_technicien')->nullable();
+            $table->integer('id_parking')->nullable();  
+            $table->date('datedebut')->nullable();
+            $table->date('datefin')->nullable();
             $table->timestamps();
         });
     }

@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('Marque')->nullable();
             $table->string('codegps')->nullable();
             $table->string('Matricule')->nullable();
-            $table->integer('kilométrage')->nullable(); 
+            $table->integer('kilométrage')->nullable();
+            $table->integer('dispo')->default(0); 
             $table->timestamps();
         });
     }

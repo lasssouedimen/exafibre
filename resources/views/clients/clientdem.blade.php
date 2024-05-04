@@ -16,7 +16,6 @@
             content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link rel="shortcut icon" href="assets/img/icons/logotrans.png" />
 
         <link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-in.html" />
 
@@ -35,8 +34,6 @@
 <body>
     <main class="d-flex w-100"
         style="background-color:white ; background-image:url(assets/img/icons/logotranspar3.png);">
-
-
         <div class="container d-flex flex-column">
             <div class="row vh-100">
                 <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">

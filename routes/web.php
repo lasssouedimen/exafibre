@@ -46,7 +46,7 @@ Route::get( '/demandes/detaille/{id}',[DemandesController::class, 'afficher'])->
 Route::get('/demandes/index/{id}/{etat}', [DemandesController::class, 'changeetat'])->name('index.changeetat');
 
 Route::get('clientdemandes/changeEta/{id}/{val}', [DemandesController::class, 'changeEta'])->name('clientdemandes.changeEta');
-Route::get('/demandes_affectation/{id}', [DemandesController::class, 'affectation'])->name('affectation.valider');
+Route::get('/demandes_affectation', [DemandesController::class, 'affectation'])->name('affectation.affecter');
 Route::get('/techniciens/archive/{id}/{etat}', [technicienscontroller::class, 'archive'])->name('technicien.archive');
 
 

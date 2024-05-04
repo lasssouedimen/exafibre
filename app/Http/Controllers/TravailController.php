@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 use App\Models\Clientdemandes;
 use App\Models\Travail;
+use App\Models\Techniciens;
+use App\Models\parking;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class TravailController extends Controller
 {
@@ -12,7 +15,7 @@ class TravailController extends Controller
      */
     public function index()
     {
-        $clientdemandes = Clientdemandes::where('etat',2)->get();;
+        $clientdemandes = Clientdemandes::where('etat',2)->get();dd($clientdemandes);
         return view('travailles.index',compact('clientdemandes'));
     }
 
@@ -21,6 +24,23 @@ class TravailController extends Controller
      */
     public function store(Request $request)
     { 
+       Travail::create([
+            'id_demande'=>$request->id_demande,
+            'id_technicien'=>$request->id_technicien,
+            'id_parking' => $request->id_parking,
+            'datedebut'=> Carbon::now(),
+            
+        ]);
+        $technicien=Techniciens::find($request->id_technicien);
+        $technicien->dispo = 1;
+        $technicien->update();
+        $parking=parking::find($request->id_parking);
+        $parking->dispo = 1;
+        $parking->update();
+        $clientdemandes=Clientdemandes::find($request->id_demande);
+        $clientdemandes->etat = 2;
+        $clientdemandes->update();
+       return redirect()->route("affectation.affecter");
     }
 
     /**

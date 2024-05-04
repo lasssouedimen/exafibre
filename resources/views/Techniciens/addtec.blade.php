@@ -37,61 +37,68 @@
                                     <form action="{{ route('Techniciens.store') }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
+                                        
+
+
+
+
+
                                         <div class="row">
                                             <div class="row form-group">
-                                                <div class="col col-md-2 "><label for="nom"
-                                                    style="font-size:15px">Nom:</label></div>
-                                                <div class="col-12 col-md-3"><input type="text" id="nom"
+                                                <div class="col col-md-1 "><label for="nom"
+                                                     class=" form-control-label" tyle="font-size:15px">Nom:</label></div>
+                                                <div class="col-12 col-md-4"><input type="text" id="nom"
                                                         name="nom" class="form-control" required>
                                                 </div>
                                                 <div class="col col-md-1"><label for="prenom"
                                                         class=" form-control-label" style="font-size:15px">Prenom:</label>
                                                 </div>
-                                                <div class="col-12 col-md-3"><input type="text" id="prenom"
-                                                        name="prenom" placeholder="" class="form-control" required>
+                                                <div class="col-12 col-md-4"><input type="text" id="prenom"
+                                                        name="prenom"  class="form-control" required>
                                                 </div>
 
                                             </div>
                                             <div class="row form-group">
-                                                <div class="col col-md-2"><label for="Adresse"
-                                                        class=" form-control-label" style="font-size:15px">Adresse : </label></div>
-                                                <div class="col-12 col-md-3"><input type="text" id="Adresse"
-                                                        name="Adresse" placeholder="	" class="form-control" required>
+                                                <div class="col col-md-1"><label for="Adresse"
+                                                        class=" form-control-label" style="font-size:15px">Adresse: </label></div>
+                                                <div class="col-12 col-md-4"><input type="text" id="Adresse"
+                                                        name="Adresse" class="form-control" required>
                                                 </div>
-                                                <div class="col col-md-2"><label for="Tel"
-                                                        class=" form-control-label" style="font-size:15px">Telephone:</label>
+                                                <div class="col col-md-1"><label for="Tel"
+                                                        class=" form-control-label" style="font-size:15px">Téléphone:</label>
                                                 </div>
-                                                <div class="col-12 col-md-3"><input type="number" id="Tel"
-                                                        name="Tel" placeholder="" class="form-control" required>
+                                                <div class="col-12 col-md-4"><input type="number" id="Tel"
+                                                        name="Tel" class="form-control" required>
                                                 </div>
 
                                             </div>
                                             <div class="row form-group">
-                                                <div class="col col-md-1"><label for="Age"
-                                                        class=" form-control-label" style="font-size:15px">Age: </label></div>
-                                                <div class="col-12 col-md-1"><input type="number" id="Age"
-                                                        name="Age" placeholder="	" class="form-control" required>
-                                                </div>
+                                               
                                                 <div class="col col-md-1"><label for="Datedébut"
                                                         class=" form-control-label" style="font-size:15px">Date début:</label>
                                                 </div>
-                                                <div class="col-12 col-md-3"><input type="date" id="Datedébut"
-                                                        name="Datedébut" placeholder="" class="form-control" required>
+                                                <div class="col-12 col-md-4"><input type="date" id="Datedébut"
+                                                        name="Datedébut" class="form-control" required>
                                                 </div>
-                                                <div class="col col-md-1"><label for="email"
+                                                <div class="col col-md-1"><label for="mail"
                                                         class=" form-control-label" style="font-size:15px">Email:</label>
                                                 </div>
-                                                <div class="col-12 col-md-4"><input type="email" id="email"
-                                                        name="email" placeholder="" class="form-control" required>
+                                                <div class="col-12 col-md-4"><input type="mail" id="mail"
+                                                        name="mail" class="form-control" required>
                                                 </div>
-
+                                               
                                             </div>
-                                            <button type="submit" class="btn btn-light px-5 offset-9"
-                                                style="  width: 20%;
+                                            <div class="col col-md-1"><label for="Age"
+                                                class=" form-control-label" style="font-size:15px">Age: </label></div>
+                                        <div class="col-12 col-md-2"><input type="number" id="Age"
+                                                name="Age"  class="form-control" required>
+                                        </div>
+                                            <button type="submit" class="btn btn-light px-4 offset-9"
+                                                style="  width: 13%;
                                                 background-color: rgb(64, 33, 235);
                                                 color: rgb(243, 243, 245);
                                                 float: left;
-                                                font-weight: bold;">Terminer</button>
+                                                font-weight: bold;">Ajouter</button>
 
                                         </div>
                                   </div>

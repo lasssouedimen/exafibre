@@ -5,215 +5,183 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> Demande service | ExaFibre </title>
-    <meta name="description" content="Ela Admin - HTML5 Admin Template">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
-    <link rel="shortcut icon" href="assets/img/icons/logotrans.png">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+        <meta name="author" content="AdminKit">
+        <meta name="keywords"
+            content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
 
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.cs">
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.cs">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
-    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-    <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
+        <link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-in.html" />
 
-    <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css"
-        rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css"
-        rel="stylesheet" />
 
-    <style>
-        #weatherWidget .currentDesc {
-            color: #ffffff !important;
-        }
 
-        .traffic-chart {
-            min-height: 335px;
-        }
+        <link href="css/app.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-        #flotPie1 {
-            height: 150px;
-        }
 
-        #flotPie1 td {
-            padding: 3px;
-        }
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1/dist/css/bootstrap.min.css">
 
-        #flotPie1 table {
-            top: 20px !important;
-            right: -10px !important;
-        }
+    </head>
 
-        .chart-container {
-            display: table;
-            min-width: 270px;
-            text-align: left;
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
+<body>
+    <main class="d-flex w-100"
+        style="background-color:white ; background-image:url({{ asset('assets/img/icons/logotranspar3.png') }});">
+        <div class="container d-flex flex-column">
+            <div class="row vh-100">
+                <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+                    <div class="d-table-cell align-middle">
+                        <div class="card" style="background-color:rgb(243, 242, 248) ">
 
-        #flotLine5 {
-            height: 105px;
-        }
+                            <div class="card-body">
+                                <div class="m-sm-4">
+                                    <div class="text-center">
 
-        #flotBarChart {
-            height: 150px;
-        }
 
-        #cellPaiChart {
-            height: 160px;
-        }
-    </style>
-     <style>
+                                        <div class="card-header"><strong>Demande</strong><small>
+                                                Service</small>
 
-        #form{
-       
-        width: 800px;
-       
-        height: auto;
-       
-        position: absolute;
-       
-        left: 25%;
-       
-       
-        }
-       
-        </style>
+                                        </div>
+                                          <form action="{{ route('clientdemandes.store') }}" method="post"
+                                            enctype="multipart/form-data" class="form-horizontal">
+                                            @csrf
+                                            <div class="row form-group">
+                                                <div class="col col-md-2"><label for="nomfamille"
+                                                        class=" form-control-label">Nom </label></div>
+                                                <div class="col-12 col-md-3"><input type="text" id="nomfamille"
+                                                        name="nomfamille" placeholder="nom" class="form-control"
+                                                        required></div>
+                                                <div class="col col-md-2"><label for="prenom"
+                                                        class=" form-control-label">Prenom </label>
+                                                </div>
+                                                <div class="col-12 col-md-4"><input type="text" id="prenom"
+                                                        name="prenom" placeholder="prenom" class="form-control"
+                                                        required></div>
 
-</head>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-2"><label for="mail"
+                                                        class=" form-control-label">Mail</label></div>
+                                                <div class="col-12 col-md-9"><input type="email" id="mail"
+                                                        name="mail" placeholder="Enter Email" class="form-control"
+                                                        required></div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-2"><label for="telephone"
+                                                        class=" form-control-label">numero
+                                                        telephonique</label></div>
+                                                <div class="col-12 col-md-9"><input type="number" id="telephone"
+                                                        name="telephone" placeholder="Enter number" class="form-control"
+                                                        required></div>
+                                            </div>
 
-<main class="d-flex w-100"  style="background-image:assets/img/icons/logotranspar3.png">
+                                            <div class="row form-group">
+                                                <div class="col col-md-2"><label for="ville"
+                                                        class=" form-control-label">ville</label></div>
+                                                <div class="col-12 col-md-9">
+                                                    <select name="ville" id="ville" class="form-control" required>
+                                                        <option value="0">s'il vous plait selectioner votre
+                                                            ville</option>
+                                                        <option value="Marseille">Marseille</option>
+                                                        <option value="Lyon">Lyon</option>
+                                                        <option value="Toulouse">Toulouse </option>
+                                                        <option value="Nice">Nice </option>
+                                                        <option value="paris">paris </option>
+                                                    </select>
+                                                </div>
+                                            </div>
 
-    <div class="col-lg-6"  id="form">
-        <div class="card">
-            <div class="card-header">
-                <a href="#" type="submit" class="btn btn-light px-5"
-                    style="font-size:13px; background-color:rgb(57, 177, 97) ;color:rgb(243, 243, 245) ; float: right">
-                    MRT Energy</a>
-                <div class="card-header"><strong>Demande</strong><small>
-                        Service</small>
+                                            <div class="row form-group">
+                                                <div class="col col-md-2"><label for="pays"
+                                                        class=" form-control-label">pays</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <select name="pays" id="pays"
+                                                        class="form-control-sm form-control" required>
+                                                        <option value="0">s'il vous plait selectionner votre
+                                                            pays</option>
+                                                        <option value="france">france </option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-2"><label for="codepostal"
+                                                        class=" form-control-label">code postal
+                                                    </label></div>
+                                                <div class="col col-md-9">
+                                                    <select name="codepostal" id="codepostal" multiple=""
+                                                        class="form-control" required>
+                                                        <option value="1">75001</option>
+                                                        <option value="2">75002</option>
+                                                        <option value="3">75003</option>
+                                                        <option value="4">75004</option>
+                                                        <option value="5">75005</option>
+                                                        <option value="6">75006</option>
+                                                        <option value="7">75007</option>
+                                                        <option value="8">75008</option>
+                                                        <option value="9">75009</option>
+                                                        <option value="10">75010</option>
+                                                        <option value="11">75011</option>
+                                                        <option value="12">75012</option>
+                                                        <option value="13">75013</option>
+                                                        <option value="14">75014</option>
+                                                        <option value="15">75015</option>
+                                                        <option value="16">75016</option>
+                                                        <option value="17">75116</option>
+                                                        <option value="18">75017</option>
+                                                        <option value="19">75018</option>
+                                                        <option value="20">75019</option>
+                                                        <option value="21">75020</option>
+                                                        <option value="22">75000</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-2"><label for="remarque"
+                                                        class=" form-control-label">remarque</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <textarea name="remarque" id="remarque" rows="9" placeholder="Content..." class="form-control" required></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-light px-5"
+                                                    style="font-size:13px ; background-color:rgb(57, 177, 97) ; color:rgb(243, 243, 245) ; float: right ">Terminer</button>
+
+                                                <button type="reset" class="btn btn-danger btn-sm" style=" float: left">
+                                                    <i class="fa fa-ban"></i> Reset
+                                                </button>
+                                            </div>
+                                        </form>
+
+                                        @if (session('message'))
+                                            <div class="alert alert-success">
+                                                {{ session('message') }}
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-
-            <div class="card-body card-block">
-                <form action="{{ route('clientdemandes.store') }}" method="post" enctype="multipart/form-data"
-                    class="form-horizontal">
-                    @csrf
-                    <div class="row form-group">
-                        <div class="col col-md-2"><label for="nomfamille" class=" form-control-label">Nom </label></div>
-                        <div class="col-12 col-md-4"><input type="text" id="nomfamille" name="nomfamille"
-                                placeholder="nom" class="form-control" required></div>
-                        <div class="col col-md-2"><label for="prenom" class=" form-control-label">Prenom </label>
-                        </div>
-                        <div class="col-12 col-md-4"><input type="text" id="prenom" name="prenom"
-                                placeholder="prenom" class="form-control" required></div>
-
-                    </div>
-                    <div class="row form-group">
-                        <div class="col col-md-3"><label for="mail" class=" form-control-label">Mail</label></div>
-                        <div class="col-12 col-md-9"><input type="email" id="mail" name="mail"
-                                placeholder="Enter Email" class="form-control" required></div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col col-md-3"><label for="telephone" class=" form-control-label">numero
-                                telephonique</label></div>
-                        <div class="col-12 col-md-9"><input type="number" id="telephone" name="telephone"
-                                placeholder="Enter number" class="form-control" required></div>
-                    </div>
-
-                    <div class="row form-group">
-                        <div class="col col-md-3"><label for="ville" class=" form-control-label" >ville</label></div>
-                        <div class="col-12 col-md-9">
-                            <select name="ville" id="ville" class="form-control" required>
-                                <option value="0">s'il vous plait selectioner votre ville</option>
-                                <option value="Marseille">Marseille</option>
-                                <option value="Lyon">Lyon</option>
-                                <option value="Toulouse">Toulouse </option>
-                                <option value="Nice">Nice </option>
-                                <option value="paris">paris </option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row form-group">
-                        <div class="col col-md-3"><label for="pays" class=" form-control-label" >pays</label>
-                        </div>
-                        <div class="col-12 col-md-9">
-                            <select name="pays" id="pays" class="form-control-sm form-control" required>
-                                <option value="0">s'il vous plait selectionner votre pays</option>
-                                <option value="france">france </option>
-
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row form-group">
-                        <div class="col col-md-3"><label for="codepostal" class=" form-control-label" >code postal
-                            </label></div>
-                        <div class="col col-md-9">
-                            <select name="codepostal" id="codepostal" multiple="" class="form-control" required>
-                                <option value="1">75001</option>
-                                <option value="2">75002</option>
-                                <option value="3">75003</option>
-                                <option value="4">75004</option>
-                                <option value="5">75005</option>
-                                <option value="6">75006</option>
-                                <option value="7">75007</option>
-                                <option value="8">75008</option>
-                                <option value="9">75009</option>
-                                <option value="10">75010</option>
-                                <option value="11">75011</option>
-                                <option value="12">75012</option>
-                                <option value="13">75013</option>
-                                <option value="14">75014</option>
-                                <option value="15">75015</option>
-                                <option value="16">75016</option>
-                                <option value="17">75116</option>
-                                <option value="18">75017</option>
-                                <option value="19">75018</option>
-                                <option value="20">75019</option>
-                                <option value="21">75020</option>
-                                <option value="22">75000</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col col-md-3"><label for="remarque" class=" form-control-label">remarque</label>
-                        </div>
-                        <div class="col-12 col-md-9">
-                            <textarea name="remarque" id="remarque" rows="9" placeholder="Content..." class="form-control" required></textarea>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-light px-5"
-                            style="font-size:13px ; background-color:rgb(57, 177, 97) ; color:rgb(243, 243, 245) ; float: right ">Terminer</button>
-
-                        <button type="reset" class="btn btn-danger btn-sm">
-                            <i class="fa fa-ban"></i> Reset
-                        </button>
-                    </div>
-                </form>
-            </div>
-
         </div>
+    </main>
 
-    </div>
+    <script src="js/app.js"></script>
 
-</main>
+</body>
+
+</html>
 
 
 <!-- Scripts -->
@@ -492,5 +460,3 @@
 </body>
 
 </html>
-
-

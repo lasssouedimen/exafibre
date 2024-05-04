@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Notification;
 use App\Models\Techniciens;
+use App\Models\parking;
 use Illuminate\Support\Facades\Auth;
 
 class DemandesController extends Controller
@@ -54,10 +55,11 @@ class DemandesController extends Controller
         return redirect()->route('demandes.index');
     }
 
-    public function affectation($id)
-    {
-        $techniciens = Techniciens::all();
-        return view('demandes.affectation', compact('id','techniciens'));
+    public function affectation()
+    {   $parkings=parking::where('dispo',0)->get();
+        $techniciens = Techniciens::where('dispo',0)->get();
+        $clientdemandes = clientdemandes::where('etat',3)->get();
+        return view('demandes.affectation', compact('parkings','techniciens','clientdemandes'));
     }
 
 

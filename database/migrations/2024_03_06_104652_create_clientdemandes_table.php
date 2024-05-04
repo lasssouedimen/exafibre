@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('mail')->nullable();  
             $table->string('ville')->nullable();  
             $table->string('pays')->nullable();
-            $table->string('region')->nullable();
             $table->integer('codepostal')->nullable();
             $table->string('remarque')->nullable();
             $table->string('etat')->nullable();

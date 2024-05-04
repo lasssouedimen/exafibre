@@ -15,7 +15,6 @@ class Clientdemandes extends Model
         'mail',
         'ville',
         'pays',
-        'region',
         'codepostal',
         'remarque',
         'etat'

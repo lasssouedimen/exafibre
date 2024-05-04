@@ -13,6 +13,7 @@ class parking extends Model
         'codegps',
         'Matricule',
         'kilométrage',
+        'dispo',
        
 ];
 

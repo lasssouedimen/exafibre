@@ -28,7 +28,6 @@ class ClientdemandesController extends Controller
             'mail'=>$request->mail,
             'ville'=>$request->ville,
             'pays'=>$request->pays,
-            'region'=>$request->region,
             'codepostal'=>$request->codepostal,
             'remarque'=>$request->remarque,
            ]);

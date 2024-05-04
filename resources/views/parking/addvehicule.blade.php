@@ -47,7 +47,7 @@
 	
 						</div>
 						<div class="row form-group">
-							<div class="col col-md-2"><label for="Matricule" class=" form-control-label" style="font-size:15px"> Matricule: </label></div>
+							<div class="col col-md-1"><label for="Matricule" class=" form-control-label" style="font-size:15px"> Matricule: </label></div>
 							<div class="col-12 col-md-3"><input type="text" id="Matricule" name="Matricule"
 									placeholder="	" class="form-control" required></div>
 							<div class="col col-md-2"><label for="kilométrage" class=" form-control-label" style="font-size:15px">kilométrage: </label>
@@ -56,12 +56,12 @@
 									placeholder="" class="form-control" required></div>
 	
 						</div>
-						<button type="submit" class="btn btn-light px-5 offset-9"
-						style="  width: 20%;
+						<button type="submit" class="btn btn-light px-4 offset-9"
+						style="  width: 13%;
 					background-color: rgb(64, 33, 235);
 					color: rgb(243, 243, 245);
 					float: left;
-					font-weight: bold;">Terminer</button>
+					font-weight: bold;" >Ajouter</button>
 						</div>
 					</form>
 				</div>
