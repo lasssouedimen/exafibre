@@ -27,14 +27,14 @@
                                 <table id="example" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Nom prenom</th>
-                                            <th scope="col">telephone </th>
-                                            <th scope="col"> mail</th>
-                                            <th scope="col"> ville</th>
-                                            <th scope="col"> pays</th>
-                                            <th scope="col"> codepostal</th>
-                                            <th scope="col"> remarque</th>
-                                            <th scope="col"> action</th>
+                                            <th scope="col">Nom Prénom</th>
+                                            <th scope="col">Téléphone </th>
+                                            <th scope="col"> Mail</th>
+                                            <th scope="col"> Ville</th>
+                                            <th scope="col"> Pays</th>
+                                            <th scope="col"> Code postal</th>
+                                            <th scope="col"> Remarque</th>
+                                            <th scope="col"> Action</th>
 
                                         </tr>
                                     </thead>

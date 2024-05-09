@@ -87,17 +87,24 @@
                     </li>
                     <li class="menu-title">mrt energie</li>
 
-                    <li >
-                        <a href="{{route('Techniciens.index')}}" > <i class="menu-icon fa  fa-group (alias)"></i>Techniciens</a>
-
+                    <li class="menu-item-has-children dropdown">
+                        <a href=""  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > <i class="menu-icon fa  fa-group (alias)"></i>Techniciens</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="ti-layers-alt"></i><a href="{{route('Techniciens.index')}}">Liste des Techniciens</a></li>
+                            <li><i class="fa fa-user"></i><a href="{{route('Technicienstecharch')}}">Techniciens Archivée</a></li>
+                        </ul>  
                     </li>
                     <li>
                         <a href="{{route('travailles.index')}}"> <i class="menu-icon fa fa-server"></i>Travail</a>
                     </li>
 
 
-                    <li >
-                        <a href="{{route('parking.index')}}" > <i class="menu-icon fa fa-truck"></i>Parking</a>
+                    <li class="menu-item-has-children dropdown">
+                        <a href=""  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > <i class="menu-icon fa fa-truck"></i>Voiture</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="ti-layers-alt"></i><a href="{{route('parking.index')}}">Liste des voitures</a></li>
+                            <li><i class="ti-arrow-circle-right"></i><a href="{{route('parkingindexarch')}}">Voiture Aarchivée</a></li>
+                        </ul>  
                         
                     </li>
                     <li class="menu-title">materiel</li>

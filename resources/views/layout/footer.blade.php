@@ -236,5 +236,12 @@ jQuery(document).ready(function($) {
     // Bar Chart #flotBarChart End
 });
 </script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example').DataTable();
+    });
+</script>
+
 </body>
 </html>

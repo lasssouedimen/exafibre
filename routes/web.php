@@ -48,6 +48,10 @@ Route::get('/demandes/index/{id}/{etat}', [DemandesController::class, 'changeeta
 Route::get('clientdemandes/changeEta/{id}/{val}', [DemandesController::class, 'changeEta'])->name('clientdemandes.changeEta');
 Route::get('/demandes_affectation', [DemandesController::class, 'affectation'])->name('affectation.affecter');
 Route::get('/techniciens/archive/{id}/{etat}', [technicienscontroller::class, 'archive'])->name('technicien.archive');
+Route::get('/parking/archive/{id}/{etat}', [ParkingController::class, 'archive'])->name('parking.archive');
+Route::get('/parkingindexarch', [ParkingController::class, 'indexarch'])->name('parkingindexarch');
+Route::get('/Technicienstecharch', [technicienscontroller::class, 'techarch'])->name('Technicienstecharch');
+
 
 
 require __DIR__.'/auth.php';

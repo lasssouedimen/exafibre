@@ -16,15 +16,15 @@ class Travail extends Model
         'datefin ',
     ];
     public function demandes()
-    { 
-        return $this->belongsTo(Clientdemandes::class,"id_demande"); 
+    {
+        return $this->belongsTo(Clientdemandes::class, "id_demande");
     }
     public function techniciens()
-{ 
-    return $this->belongsTo(Techniciens::class, 'id_technicien'); 
-}
+    {
+        return $this->belongsTo(Techniciens::class, 'id_technicien');
+    }
     public function parkings()
-    { 
-        return $this->belongsTo(parking::class,"id_parking"); 
+    {
+        return $this->belongsTo(parking::class, "id_parking");
     }
 }

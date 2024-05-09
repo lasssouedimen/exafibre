@@ -11,15 +11,8 @@
                         <div class="card-body">
 
                             <div class="form-group">
-                                <a href="{{ route('parking.create') }}" class="btn btn-light px-2"
-                                    style="font-size:12px ; background-color:rgb(64, 33, 235) ;color:rgb(243, 243, 245) ; float: right ; margin-top:8px ">
-                                    <i class="bi bi-plus-circle-fill"></i><svg xmlns="http://www.w3.org/2000/svg"
-                                        width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill"
-                                        viewBox="0 0 16 16">
-                                        <path
-                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
-                                    </svg>Ajouter</a>
-                                <div class="card-header"><strong>Parking</strong></div>
+                              
+                                <div class="card-header"><strong>Voiture Archivée</strong></div>
                                 <div class="card-body card-block">
                                 </div>
                                 @if ($message = Session::get('success'))
@@ -78,40 +71,22 @@
                                                             href="{{ route('parking.archive', ['id' => $parking->id, 'etat' => 1]) }}"><i
                                                                 class="fa-solid fa-box-archive"></i><i class="bi bi-x-lg"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                                                                     <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-                                                                  </svg> Archivée</a>
+                                                                  </svg>Archivée</a>
                                                     @else
                                                         <a class="btn btn-light px-3"
                                                             style="background-color: rgb(64, 33, 235) ; color :rgb(249, 249, 252); font-size:11px"
                                                             href="{{ route('parking.archive', ['id' => $parking->id, 'etat' => 0]) }}"><i
-                                                                class="fa-solid fa-box-archive"></i>déasarchive</a>
+                                                                class="fa-solid fa-box-archive"></i><i class="bi bi-x-lg"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                                                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                                                                  </svg> Déasarchive</a>
                                                     @endif
-                                                    <a class="btn btn-light px-3"
-                                                    style="font-size:10px  ; background-color:rgb(64, 33, 235) ;color:rgb(243, 243, 245) ;"href="{{ route('parking.show', $parking->id) }}"><i class="bi bi-arrow-left-right"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
-                                                        <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5"/>
-                                                      </svg> Historique</a>
                                                 </td>
 
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-
-
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-
 </main>
 
 @include('layout.footer')
-<style>
-    td {
-        color: black;
-    }
-</style>

@@ -14,6 +14,7 @@ class parking extends Model
         'Matricule',
         'kilométrage',
         'dispo',
+        'arch',
        
 ];
 

@@ -20,13 +20,13 @@
                                 <table id="example" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th scope="col">prenom </th>
-                                            <th scope="col">nom famille</th>
-                                            <th scope="col"> telephone</th>
-                                            <th scope="col"> ville</th>
-                                            <th scope="col"> date de creation</th>
-                                            <th scope="col"> état</th>
-                                            <th scope="col"> action</th>
+                                            <th scope="col">Prénom </th>
+                                            <th scope="col">Nom</th>
+                                            <th scope="col"> Telephone</th>
+                                            <th scope="col"> Ville</th>
+                                            <th scope="col"> Date de Création</th>
+                                            <th scope="col"> État</th>
+                                            <th scope="col"> Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\parking;
+use App\Models\Travail;
 use Illuminate\Http\Request;
 
 class ParkingController extends Controller
@@ -12,8 +13,13 @@ class ParkingController extends Controller
      */
     public function index()
     {
-        $parking = parking::all();
+        $parking = parking::where('arch',0)->get();
         return view('parking.index',compact('parking'));
+    }
+    public function indexarch()
+    {
+        $parking = parking::where('arch',1)->get();
+        return view('parking.indexarch',compact('parking'));
     }
     public function create()
     {
@@ -40,9 +46,12 @@ class ParkingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(parking $parking)
+    public function show($id)
     {
-        //
+        $parking = parking::find($id);
+        $travailles = Travail::where('id_parking', $id)->get();
+        return view('parking.historique', compact('parking','travailles'));
+
     }
 
     /**
@@ -61,5 +70,12 @@ class ParkingController extends Controller
         
     $parking->delete();
     return redirect()->route('parking.index')->with('success');
+    }
+    public function archive($id , $etat){
+        $parking = parking::find($id);
+        $parking->arch=$etat;
+        $parking->update();
+        return redirect()->route('parking.index')->with('success','voiture  archiver');
+    
     }
 }

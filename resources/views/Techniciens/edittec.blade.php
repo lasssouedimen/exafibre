@@ -30,10 +30,8 @@
                                     </div>
                                 @endif
                          
-                                @foreach ($techniciens as $technicien)
                                 <form action="{{ route('Techniciens.update', $technicien->id) }}" method="post"
                                     enctype="multipart/form-data">
-                            @endforeach
                             @method('PUT')
 						@csrf
 						<div class="row">

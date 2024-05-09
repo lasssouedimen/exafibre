@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\stock;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
+use Dompdf\Dompdf;
 class StockController extends Controller
 {
     /**
@@ -27,14 +28,14 @@ class StockController extends Controller
     public function store(Request $request)
     { 
         $sto=stock::create([
-            'date'=>$request->date,
+            'date'=> Carbon::now(),
             'libellé'=>$request->libellé,
             'qte'=>$request->qte,
             'prixunitaire'=>$request->prixunitaire,
-            'valeur'=>$request->valeur,
+            'valeur'=>$request->qte*$request->prixunitaire,
             'qte1'=>$request->qte1,
             'prixunitaire1'=>$request->prixunitaire1,
-            'valeur1'=>$request->valeur1,
+            'valeur1'=>$request->qte1*$request->prixunitaire1,
             'qte2'=>$request->qte2,
             'prixunitaire2'=>$request->prixunitaire2,
             'valeur2'=>$request->valeur2,
@@ -66,4 +67,5 @@ class StockController extends Controller
     {
         //
     }
+   
 }

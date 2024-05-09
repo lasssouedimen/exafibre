@@ -11,24 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('parkings', function (Blueprint $table) {
+        Schema::create('chef_equipes', function (Blueprint $table) {
             $table->id();
-            $table->string('Marque')->nullable();
-            $table->string('codegps')->nullable();
-            $table->string('Matricule')->nullable();
-            $table->integer('kilométrage')->nullable();
-            $table->integer('dispo')->default(0); 
-            $table->integer('arch')->default(0);
-
             $table->timestamps();
         });
     }
-    
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('parkings');
+        Schema::dropIfExists('chef_equipes');
     }
 };

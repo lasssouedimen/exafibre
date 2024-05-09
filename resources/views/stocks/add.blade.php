@@ -37,11 +37,20 @@
                                         enctype="multipart/form-data">
                                         @csrf
                                         <div class="row">
-                                            <select id="choix">
-                                                <option value="0">choisir</option>
-                                                <option value="1">Entree</option>
-                                                <option value="2">Sortie</option>
-                                            </select>
+                                          
+                                            <div class="row form-group">
+                                                <div class="col col-md-2"><label for="libellé"
+                                                        class=" form-control-label">choisir</label></div>
+                                                <div class="col-12 col-md-9">
+                                                    <select name="libellé" id="libellé" class="form-control" required>
+                                                        <option value="0">s'il vous plait </option>
+                                                        <option value="Entree">Entree</option>
+                                                        <option value="Sortie">Sortie</option>
+                                                        
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            
 
                                             <div id="champsChoix1" style="display: none;">
 
@@ -49,8 +58,7 @@
                                                 <input type="number"  name="qte" id="qte">
                                                 <label for="prixunitaire">prix unitaire :</label>
                                                 <input type="number" name="prixunitaire" id="prixunitaire">
-                                                <label for="valeur">valeur:</label>
-                                                <input type="number"  name="valeur" id="valeur">
+                                                
                                                 <button type="submit" class="btn btn-light px-5 offset-9"
                                                     style="  width: 20%;
                                                 background-color: rgb(64, 33, 235);
@@ -61,12 +69,11 @@
 
                                             <div id="champsChoix2" style="display: none;">
                                                 <!-- Champs pour le choix 2 -->
-                                                <label for="champ2">Qte:</label>
-                                                <input type="text" id="champ2">
-                                                <label for="champ2">prix unitaire :</label>
-                                                <input type="text" id="champ2">
-                                                <label for="champ2">valeur:</label>
-                                                <input type="text" id="champ2">
+                                                <label for="qte1">Qte:</label>
+                                                <input type="number"  name="qte1" id="qte1">
+                                                <label for="prixunitaire1">prix unitaire :</label>
+                                                <input type="number"  name="prixunitaire1" id="prixunitaire1">
+                                               
                                                 <button type="submit" class="btn btn-light px-5 offset-9"
                                                     style="  width: 20%;
                                                 background-color: rgb(64, 33, 235);
@@ -89,13 +96,14 @@
 </main>
 
 @include('layout.footer')
+
 <script>
-    const choix = document.getElementById('choix');
+    const libellé = document.getElementById('libellé');
     const champsChoix1 = document.getElementById('champsChoix1');
     const champsChoix2 = document.getElementById('champsChoix2');
 
 
-    choix.addEventListener('change', function(event) {
+    libellé.addEventListener('change', function(event) {
         const selectedOption = event.target.value;
 
 
@@ -103,9 +111,9 @@
         champsChoix2.style.display = 'none';
 
 
-        if (selectedOption === '1') {
+        if (selectedOption === 'Entree') {
             champsChoix1.style.display = 'block';
-        } else if (selectedOption === '2') {
+        } else if (selectedOption === 'Sortie') {
             champsChoix2.style.display = 'block';
         }
     });
