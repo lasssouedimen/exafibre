@@ -88,12 +88,23 @@
                     <li class="menu-title">mrt energie</li>
 
                     <li class="menu-item-has-children dropdown">
+                        <a href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa fa-user"></i>Chef D'equipe</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="ti-layers-alt"></i><a href="{{route('chefEquipe.index')}}">Liste des chef D'equipe</a></li>
+                            <li><i class="fa fa-user"></i><a href="{{route('chefEquipearchive')}}">Chef D'equipe Archivée</a></li>
+
+                        </ul>  
+                    </li>
+                        
+                    <li class="menu-item-has-children dropdown">
                         <a href=""  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > <i class="menu-icon fa  fa-group (alias)"></i>Techniciens</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="ti-layers-alt"></i><a href="{{route('Techniciens.index')}}">Liste des Techniciens</a></li>
                             <li><i class="fa fa-user"></i><a href="{{route('Technicienstecharch')}}">Techniciens Archivée</a></li>
                         </ul>  
                     </li>
+                   
+
                     <li>
                         <a href="{{route('travailles.index')}}"> <i class="menu-icon fa fa-server"></i>Travail</a>
                     </li>

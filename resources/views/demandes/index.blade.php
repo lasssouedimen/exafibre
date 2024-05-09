@@ -114,12 +114,3 @@
 
 @include('layout.footer')
 
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#example').DataTable();
-    });
-</script>
-
-
-

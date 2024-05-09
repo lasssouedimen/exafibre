@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('chef_equipes', function (Blueprint $table) {
             $table->id();
+            $table->string('nom')->nullable();
+            $table->string('prenom')->nullable();
+            $table->string('Adresse')->nullable();  
+            $table->integer('Tel')->nullable();
+            $table->integer('Age')->nullable();
+            $table->string('Datedébut')->nullable();
+            $table->string('mail')->nullable();  
+            $table->integer('arch')->default(0);
+            $table->integer('etat')->default(0);
             $table->timestamps();
         });
     }

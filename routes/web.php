@@ -8,7 +8,7 @@ use App\Http\Controllers\DemandesController;
 use App\Http\Controllers\TravailController;
 use App\Http\Controllers\ParkingController;
 use App\Http\Controllers\StockController;
-
+use App\Http\Controllers\ChefEquipeController;
     
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +41,8 @@ Route::resource('demandes', DemandesController::class);
 Route::resource('parking', ParkingController::class);
 Route::resource('travailles', TravailController::class);
 Route::resource('stocks', StockController::class);
+Route::resource('chefEquipe', ChefEquipeController::class);
+
 
 Route::get( '/demandes/detaille/{id}',[DemandesController::class, 'afficher'])->name('detaille.afficher');
 Route::get('/demandes/index/{id}/{etat}', [DemandesController::class, 'changeetat'])->name('index.changeetat');
@@ -51,6 +53,9 @@ Route::get('/techniciens/archive/{id}/{etat}', [technicienscontroller::class, 'a
 Route::get('/parking/archive/{id}/{etat}', [ParkingController::class, 'archive'])->name('parking.archive');
 Route::get('/parkingindexarch', [ParkingController::class, 'indexarch'])->name('parkingindexarch');
 Route::get('/Technicienstecharch', [technicienscontroller::class, 'techarch'])->name('Technicienstecharch');
+Route::get('/chefEquipechefarch', [ChefEquipeController::class, 'chefarch'])->name('chefEquipechefarch');
+Route::get('/chefEquipe/archive/{id}/{etat}', [ChefEquipeController::class, 'archive'])->name('chefEquipe.archive');
+Route::get('/chefEquipechefarch', [ChefEquipeController::class, 'chefarch'])->name('chefEquipearchive');
 
 
 

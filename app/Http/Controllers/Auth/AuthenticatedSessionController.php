@@ -9,7 +9,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-
+use Illuminate\Support\Str;
+use App\Models\User; 
 class AuthenticatedSessionController extends Controller
 {
     /**
@@ -25,11 +26,25 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
-
-        $request->session()->regenerate();
-
-        return redirect()->intended(RouteServiceProvider::HOME);
+        
+        $content = $request->getContent();
+        $email = Str::between($content, "email=", "&");
+        $email = urldecode($email);
+        $user= User::where('email',$email)->first();
+        //kenou admin
+        if($user->role==0){
+            $request->authenticate();
+            $request->session()->regenerate();
+            return redirect()->intended(RouteServiceProvider::HOME);
+        }
+        //kenou chef d'equipe
+        if($user->role==1 && $user->archv==0){
+            $request->authenticate();
+            $request->session()->regenerate();
+            return redirect()->route('dashboardchef');
+        }elseif($user->role==1 && $user->archv==1){
+            return redirect()->route('login');
+        }
     }
 
     /**

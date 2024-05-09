@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class ChefEquipe extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nom',
+        'prenom',
+        'Adresse',
+        'Tel',
+        'Age',
+        'Datedébut',
+        'mail',
+        'arch',
+        'etat',
+];
 }
