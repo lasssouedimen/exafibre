@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Techniciens;
 use App\Models\Travail;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Mail\WelcomeEmail;
 
 class technicienscontroller extends Controller
 {
@@ -32,17 +35,43 @@ class technicienscontroller extends Controller
             'prenom' => $request->prenom,
             'Adresse' => $request->Adresse,
             'Tel' => $request->Tel,
-            'Age' => $request->Age,
+            'Datenaissance' => $request->Datenaissance,
             'Datedébut' => $request->Datedébut,
             'mail' => $request->mail,
         ]);
+        $user = User::where('email', $request->mail)->first();
+
+        if ($user) {
+
+            return redirect()->back()->with('error', 'An account with this email already exists.');
+        } else {
+
+
+            User::create([
+                'name' => $request->nom . ' ' . $request->prenom,
+                'email' => $request->mail,
+                'password' => Hash::make($request->Tel),
+               
+            ]);
+        
+            $data = [
+                'name' => $request->nom . ' ' . $request->prenom,
+                'email' => $request->mail,
+                'password'=>$request->Tel,
+               ];
+        \Mail::to($request->mail)->send(new WelcomeEmail($data));
+
         $message = $request->nom . ' crée avec succée !';
-        return redirect(route('Techniciens.index'))->with('message', $message);
+        return redirect(route('Techniciens.index'))->with('message', $message);}
     }
+    
 
     public function edit($id)
     {
         $technicien = Techniciens::find($id);
+
+
+        
         return view('Techniciens.edittec', compact('technicien'));
     }
     public function show($id)

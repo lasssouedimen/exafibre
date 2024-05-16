@@ -146,7 +146,7 @@
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-2"><label for="remarque"
-                                                        class=" form-control-label">remarque</label>
+                                                        class=" form-control-label">Description :</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
                                                     <textarea name="remarque" id="remarque" rows="9" placeholder="Content..." class="form-control" required></textarea>

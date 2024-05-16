@@ -14,24 +14,13 @@ class TechnicienTableSeeder extends Seeder
      */
     public function run(): void
     {
-        Techniciens::create([
-            'nom'=>'Gueldiche',
-            'prenom'=>'Naziha',
-            'Adresse'=>'Chihemmik',
-            'Tel'=>'12345678',
-            'Age'=>'23',
-            'Datedébut'=>'02/05/2024',
-            'mail'=>'naziha@gmail.com',
-            'arch'=>'0',
-            'dispo'=>'0',
-        ]);
-
+      
         Techniciens::create([
             'nom'=>'lassoued',
             'prenom'=>'imen',
             'Adresse'=>'rue de france ',
             'Tel'=>'27047681',
-            'Age'=>'25',
+            'Datenaissance'=>'02/02/2002',
             'Datedébut'=>'01/04/2024',
             'mail'=>'imen@gmail.com',
             'arch'=>'0',
@@ -42,7 +31,7 @@ class TechnicienTableSeeder extends Seeder
             'prenom'=>'islem',
             'Adresse'=>'rue de marseille ',
             'Tel'=>'28061599',
-            'Age'=>'22',
+            'Datenaissance'=>'22/03/2003',
             'Datedébut'=>'01/03/2024',
             'mail'=>'islem@gmail.com',
             'arch'=>'0',
@@ -53,7 +42,7 @@ class TechnicienTableSeeder extends Seeder
             'prenom'=>'zouhour',
             'Adresse'=>'rue de france ',
             'Tel'=>'28061599',
-            'Age'=>'25',
+            'Datenaissance'=>'25/01/2008',
             'Datedébut'=>'05/05/2024',
             'mail'=>'zouhour@gmail.com',
             'arch'=>'0',
@@ -64,7 +53,7 @@ class TechnicienTableSeeder extends Seeder
             'prenom'=>'mohamed',
             'Adresse'=>'rue de paris ',
             'Tel'=>'50250544',
-            'Age'=>'24',
+            'Datenaissance'=>'24/07/2021',
             'Datedébut'=>'25/05/2024',
             'mail'=>'mohamed@gmail.com',
             'arch'=>'0',

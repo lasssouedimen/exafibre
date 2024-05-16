@@ -37,7 +37,7 @@
 							<div class="card-body">
 								<div class="m-sm-4">
 									<div class="text-center">
-										<img src="assets/img/avatars/logo..jpg" alt="Charles Hall" class="img-fluid rounded-circle" width="170" height="170" />
+										<img src="{{asset('assets/img/icons/licence-de-fabrication-et-d-exploitation-commerciale-3845055.jpg')}}" alt="Charles Hall" class="img-fluid rounded-circle" width="170" height="170" />
 									</div>
 									<form method="POST" action="{{ route('login') }}">
 										@csrf

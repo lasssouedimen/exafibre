@@ -9,6 +9,8 @@ use App\Http\Controllers\TravailController;
 use App\Http\Controllers\ParkingController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\ChefEquipeController;
+use App\Http\Controllers\ParametreController;
+use App\Http\Controllers\PDFController;
     
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,10 @@ use App\Http\Controllers\ChefEquipeController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboardchef', function () {
+    return view('dashboardchef');
+})->middleware(['auth', 'verified'])->name('dashboardchef');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -42,7 +48,7 @@ Route::resource('parking', ParkingController::class);
 Route::resource('travailles', TravailController::class);
 Route::resource('stocks', StockController::class);
 Route::resource('chefEquipe', ChefEquipeController::class);
-
+Route::resource('parameters', ParametreController::class);
 
 Route::get( '/demandes/detaille/{id}',[DemandesController::class, 'afficher'])->name('detaille.afficher');
 Route::get('/demandes/index/{id}/{etat}', [DemandesController::class, 'changeetat'])->name('index.changeetat');
@@ -57,6 +63,11 @@ Route::get('/chefEquipechefarch', [ChefEquipeController::class, 'chefarch'])->na
 Route::get('/chefEquipe/archive/{id}/{etat}', [ChefEquipeController::class, 'archive'])->name('chefEquipe.archive');
 Route::get('/chefEquipechefarch', [ChefEquipeController::class, 'chefarch'])->name('chefEquipearchive');
 
+Route::get('generate-pdf', [PDFController::class, 'generatePDF'])->name('generate-pdf');
+
+
+
+Route::get('myPDF', [PDFController::class,'index'])->name('myPDF');
 
 
 require __DIR__.'/auth.php';

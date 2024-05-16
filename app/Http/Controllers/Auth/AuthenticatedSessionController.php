@@ -43,7 +43,9 @@ class AuthenticatedSessionController extends Controller
             $request->session()->regenerate();
             return redirect()->route('dashboardchef');
         }elseif($user->role==1 && $user->archv==1){
-            return redirect()->route('login');
+         
+            return redirect(route('login'))-> with('Désolé, vous êtes bloqué.');
+           
         }
     }
 

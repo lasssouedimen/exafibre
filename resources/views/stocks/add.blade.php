@@ -27,12 +27,7 @@
                                     <div class="card-body card-block">
                                     </div>
                                     <hr>
-                                    @if ($message = Session::get('success'))
-                                        <div class="alert alert-success">
-                                            <p>{{ $message }}</p>
-                                        </div>
-                                    @endif
-
+                                  
                                     <form action="{{ route('stocks.store') }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
@@ -54,10 +49,10 @@
 
                                             <div id="champsChoix1" style="display: none;">
 
-                                                <label for="qte">Qte :</label>
-                                                <input type="number"  name="qte" id="qte">
-                                                <label for="prixunitaire">prix unitaire :</label>
-                                                <input type="number" name="prixunitaire" id="prixunitaire">
+                                                <label for="qte" class=" form-control-label">Qte :</label>
+                                                <div class="col-12 col-md-4"><input type="number"  class="form-control" name="qte" id="qte"></div>
+                                                <label for="prixunitaire" class=" form-control-label">prix unitaire :</label>
+                                                <div class="col-12 col-md-4"> <input type="number" class="form-control" name="prixunitaire" id="prixunitaire"></div>   
                                                 
                                                 <button type="submit" class="btn btn-light px-5 offset-9"
                                                     style="  width: 20%;
@@ -69,10 +64,10 @@
 
                                             <div id="champsChoix2" style="display: none;">
                                                 <!-- Champs pour le choix 2 -->
-                                                <label for="qte1">Qte:</label>
-                                                <input type="number"  name="qte1" id="qte1">
-                                                <label for="prixunitaire1">prix unitaire :</label>
-                                                <input type="number"  name="prixunitaire1" id="prixunitaire1">
+                                                <label for="qte1" class=" form-control-label">Qte:</label>
+                                                <div class="col-12 col-md-4"> <input type="number"   class="form-control"   name="qte1" id="qte1"></div>
+                                                <label for="prixunitaire1" class=" form-control-label">prix unitaire :</label>
+                                                <div class="col-12 col-md-4"> <input type="number"  class="form-control"   name="prixunitaire1" id="prixunitaire1"></div>
                                                
                                                 <button type="submit" class="btn btn-light px-5 offset-9"
                                                     style="  width: 20%;

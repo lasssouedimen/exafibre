@@ -1,4 +1,4 @@
-<title> Techniciens | ExaFibre </title>
+
 @include('layout.menu')
 @include('layout.header')
 <title> ChefD'equipe | ExaFibre </title>
@@ -84,7 +84,7 @@
                                                
                                             </div>
                                             <div class="col col-md-1"><label for="Age"
-                                                class=" form-control-label" style="font-size:15px">Age: </label></div>
+                                                class=" form-control-label" style="font-size:15px">Date de naissance : </label></div>
                                         <div class="col-12 col-md-2"><input type="number" id="Age"
                                                 name="Age"  class="form-control" required>
                                         </div>

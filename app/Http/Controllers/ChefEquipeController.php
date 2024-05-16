@@ -6,14 +6,17 @@ use App\Models\ChefEquipe;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Mail\WelcomeEmail;
+
 class ChefEquipeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {  $chefequipe = chefEquipe::where('arch', 0)->get();
-        return view('chefEquipe.index' , compact('chefequipe'));    
+    {
+        $chefequipe = chefEquipe::where('arch', 0)->get();
+        return view('chefEquipe.index', compact('chefequipe'));
     }
     public function chefarch()
     {
@@ -35,23 +38,42 @@ class ChefEquipeController extends Controller
             'prenom' => $request->prenom,
             'Adresse' => $request->Adresse,
             'Tel' => $request->Tel,
-            'Age' => $request->Age,
+            'Age' => $request->aujAge,
             'Datedébut' => $request->Datedébut,
             'mail' => $request->mail,
         ]);
-        User::create([
-            'name'=>$request->nom.' '. $request->prenom,
-            'email' => $request->mail,
-            'password' => Hash::make($request->Tel),
-            'role'=>1,
-        ]);
+        $user = User::where('email', $request->mail)->first();
+
+        if ($user) {
+
+            return redirect()->back()->with('error', 'An account with this email already exists.');
+        } else {
+
+
+            User::create([
+                'name' => $request->nom . ' ' . $request->prenom,
+                'email' => $request->mail,
+                'password' => Hash::make($request->Tel),
+                'role' => 1,
+            ]);
+        
+            $data = [
+                'name' => $request->nom . ' ' . $request->prenom,
+                'email' => $request->mail,
+                'password'=>$request->Tel,
+               ];
+        \Mail::to($request->mail)->send(new WelcomeEmail($data));
+
         $message = $request->nom . ' crée avec succée !';
-        return redirect(route('chefEquipe.index'))->with('message', $message);
+        return redirect(route('chefEquipe.index'))->with('message', $message);}
     }
 
-    /**
-     * Display the specified resource.
-     */
+
+    public function edit($id)
+    {
+        $chefequipe = chefEquipe::find($id);
+        return view('chefEquipe.chefedit', compact('chefequipe'));
+    }
     public function show(ChefEquipe $chefEquipe)
     {
         //
@@ -62,7 +84,10 @@ class ChefEquipeController extends Controller
      */
     public function update(Request $request, ChefEquipe $chefEquipe)
     {
-        //
+
+        $chefEquipe->update($request->all());
+
+        return redirect()->route('chefEquipe.index')->with('modifier');
     }
 
     /**

@@ -13,7 +13,7 @@ class Techniciens extends Model
             'prenom',
             'Adresse',
             'Tel',
-            'Age',
+            'Datenaissance',
             'Datedébut',
             'mail',
             'arch',

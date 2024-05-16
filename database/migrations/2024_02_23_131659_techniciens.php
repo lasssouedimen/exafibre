@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('prenom')->nullable();
             $table->string('Adresse')->nullable();  
             $table->integer('Tel')->nullable();
-            $table->integer('Age')->nullable();
+            $table->string('Datenaissance')->nullable();
             $table->string('Datedébut')->nullable();
             $table->string('mail')->nullable();  
             $table->integer('arch')->default(0);
