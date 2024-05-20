@@ -32,10 +32,10 @@
                 @endauth
             </div>
         @endif
-        <img src="assets/img/icons/logo_1564920.jpg" alt="Charles Hall" class="img-fluid rounded-circle" style="float:right ; margin-top:250px ;" />
+        <img  src="{{ asset('images') }}/{{$information->logo}}" alt="Charles Hall" class="img-fluid rounded-circle" style="float:right ; margin-top:250px ;" />
        <div> <p style="margin-top:250px ; color:#005eff; font-size: 1.2rem;text-align: center">MRT ENERGIE, société par actions simplifiée, immatriculée sous le SIREN 844079236, est en activité depuis 5 ans. Établie à GARGES-LES-GONESSE (95140), elle est spécialisée dans le secteur d'activité des télécommunications filaires. Son effectif est compris entre 10 et 19 salariés. Sur l'année 2022 elle réalise un chiffre d'affaires de 6 608 700,00 €.
          </p></div> <div>
-            <a href="{{ route('login') }}"
+            <a href="{{ route('login')}}"
             class="btn btn-light px-5 " style="  width: 20%;
             background-color: rgb(64, 33, 235);
             color: rgb(243, 243, 245);

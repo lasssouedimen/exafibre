@@ -28,7 +28,6 @@ class ParametreController extends Controller
      */
     public function store(Request $request)
     {
-       
     $logoName='';
     //enregistrer img dans le dossier public/images
     if($file = $request->hasFile('logo')){
@@ -38,7 +37,7 @@ class ParametreController extends Controller
     $request = array_merge($request->except('logo'),['logo'=>$logoName]);
     parametre::create($request); 
 
-    return redirect()->route('parameters.parameter'); 
+    return redirect()->route('parameters.index'); 
     }
 
     /**

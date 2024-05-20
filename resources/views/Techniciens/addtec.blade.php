@@ -39,10 +39,6 @@
                                         @csrf
                                         
 
-
-
-
-
                                         <div class="row">
                                             <div class="row form-group">
                                                 <div class="col col-md-1 "><label for="nom"

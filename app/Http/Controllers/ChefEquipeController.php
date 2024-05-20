@@ -72,7 +72,7 @@ class ChefEquipeController extends Controller
     public function edit($id)
     {
         $chefequipe = chefEquipe::find($id);
-        return view('chefEquipe.chefedit', compact('chefequipe'));
+        return view('chefEquipe.index', compact('chefequipe'));
     }
     public function show(ChefEquipe $chefEquipe)
     {

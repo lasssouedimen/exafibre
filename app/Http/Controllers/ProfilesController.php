@@ -3,20 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\profiles;
+use App\Models\ChefEquipe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
-
-
 class ProfilesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $email= Auth::user()->email;
+        $chef=ChefEquipe::where('mail',$email)->first();
+        return view('profiles.profiles',compact('chef'));
     }
 
     /**
@@ -40,7 +37,7 @@ class ProfilesController extends Controller
      */
     public function update(Request $request, profiles $profiles)
     {
-        //
+        
     }
 
     /**

@@ -12,7 +12,7 @@ class StockController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {        $stocks = stock::all();
+    {     $stocks = stock::all();
         return view('stocks.index',compact('stocks'));
 
     }
@@ -40,6 +40,7 @@ class StockController extends Controller
             'prixunitaire2'=>$request->prixunitaire2,
             'valeur2'=>$request->valeur2,
            ]);
+    
            
          return redirect(route('stocks.index')); 
     }

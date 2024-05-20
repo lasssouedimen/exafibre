@@ -48,7 +48,7 @@
                                                 <td>{{ $parameter->nom }}</td>
                                                 <td scope="row">
                                                     <img src="{{ asset('images') }}/{{ $parameter->logo }}"
-                                                        alt="Pas de photo" width="50" height="60">
+                                                        alt="Pas de photo" style=" object-fit: cover;width:23%;height: 44%;">
                                                 </td>
                                                 <td>{{ $parameter->email }}</td>
                                                 <td>{{ $parameter->tel }}</td>
@@ -120,7 +120,7 @@
                                             <div class="form-group row">
                                                 <label for="name" class="col-sm-2 col-form-label">Adresse</label>
                                                 <div class="col-sm-10">
-                                                    <input type="number" class="form-control form-control-user"
+                                                    <input type="email" class="form-control form-control-user"
                                                         id="Adresse" name="Adresse">
                                                 </div>
                                             </div>
@@ -143,6 +143,95 @@
     </div>
 </main>
 
-
-
 @include('layout.footer')
+
+<script>
+    //calculer le nombre de chiffre dans une chaine
+    function countNumbers(ch) {
+        count = 0;
+        for (let i = 0; i < ch.length; i++) {
+            if (!isNaN(parseInt(ch[i]))) {
+                count++;
+            }
+        }
+        return count;
+    }
+     function openModalParam(nom, logo, email, tel, Adresse, id, action) {
+        if (action == "Modifier") {
+            $("#imgrest").show();
+            $("#nom").val(nom);
+            $("#email").val(email);
+            $("#tel").val(tel);
+            $("#Adresse").val(Adresse);
+       
+            $("#imgrest").attr('src', "{{ asset('images') }}/" + logo);
+            $("#formParam").attr('action', "parameter/" + id);
+            $("input[name='_method']").val('put');
+        } else {
+            $("#nom").val("");
+            $("#email").val("");
+            $("#tel").val("");
+            $("#Adresse").val("");
+          
+            $("#imgrest").hide();
+            $("#formParam").attr('action', "{{ route('parameters.store') }}");
+            $("input[name='_method']").val('post');
+        }
+        $("#addparamLabel").html(action + " les informations du MRT ENERGIE")
+        $('#addparam').modal("show");
+    }
+    function verifparam(){
+        msg='';
+        find=0;
+        msgerr=document.getElementById("msgerr");
+        var nom =$("#nom").val().trim();
+        var email =$("#email").val().trim();
+        var tel =$("#tel").val().trim();
+        var Adresse =$("#Adresse").val().trim();
+   
+        if(nom.length==0){
+            msg=msg+"- Vous devez choisir le nom !</br>";
+            find=1;
+        }else if(nom.length<4){
+            msg=msg+"- Vous devez choisir un nom avec un longeur >=4!</br>";
+            find=1;
+        }else if (!isNaN(nom)){
+            msg=msg+"- Le nom ne doit étre pas numérique!</br>";
+            find=1;
+        }else{
+            nb = countNumbers(nom);
+            if(nb>2){
+                find=1;
+                msg=msg+"- Le nom doit contenire au maximaume 2 chiffre!";
+            }
+        }
+        if(email.length==0){
+            msg=msg+"- Vous devez choisir l'adresse e-mail !</br>";
+            find=1;
+        }else if(email.indexOf('@')==-1){
+            msg=msg+"- L'e-mail doit conterir @ !</br>";
+            find=1;
+        }
+        if(tel.length==0){
+            msg=msg+"- Vous devez choisir le numéro de telephone !</br>";
+            find=1;
+        }else if(tel.length!=8){
+            msg=msg+"- Le numéro doit contenir 8 chiffre!</br>";
+            find=1;
+        }
+        if(Adresse.length ==0){
+            msg=msg+"- Vous devez choisir l'adresse !</br>";
+            find=1;
+        }
+        
+        if(find==0){
+            const myButton = document.querySelector('#myButton');
+            myButton.disabled = true;
+           $("#formParam").submit();
+           console.log('tsagal');
+        }else{
+            msgerr.style.display = "block";
+            msgerr.innerHTML =msg;
+        }
+    }
+</script>

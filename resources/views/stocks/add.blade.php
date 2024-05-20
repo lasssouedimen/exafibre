@@ -3,9 +3,6 @@
 <title> stocks | ExaFibre </title>
 <main class="content">
     <div id="wrapper">
-        <div class="mb-3">
-            <h1 class="h3 d-inline align-middle">TECHNICIENS</h1><a class="badge bg-primary ms-2"></a>
-        </div>
         <div class="clearfix"></div>
         <div class="content-wrapper">
             <div class="container-fluid">
@@ -52,7 +49,7 @@
                                                 <label for="qte" class=" form-control-label">Qte :</label>
                                                 <div class="col-12 col-md-4"><input type="number"  class="form-control" name="qte" id="qte"></div>
                                                 <label for="prixunitaire" class=" form-control-label">prix unitaire :</label>
-                                                <div class="col-12 col-md-4"> <input type="number" class="form-control" name="prixunitaire" id="prixunitaire"></div>   
+                                                <div class="col-12 col-md-4"> <input type="number" class="form-control" name="prixunitaire" id="prixunitaire" ></div>   
                                                 
                                                 <button type="submit" class="btn btn-light px-5 offset-9"
                                                     style="  width: 20%;
@@ -92,24 +89,25 @@
 
 @include('layout.footer')
 
+
+
 <script>
-    const libellé = document.getElementById('libellé');
-    const champsChoix1 = document.getElementById('champsChoix1');
-    const champsChoix2 = document.getElementById('champsChoix2');
+    document.addEventListener('DOMContentLoaded', function() {
+        const libelleSelect = document.getElementById('libellé');
+        const champsChoix1 = document.getElementById('champsChoix1');
+        const champsChoix2 = document.getElementById('champsChoix2');
 
-
-    libellé.addEventListener('change', function(event) {
-        const selectedOption = event.target.value;
-
-
-        champsChoix1.style.display = 'none';
-        champsChoix2.style.display = 'none';
-
-
-        if (selectedOption === 'Entree') {
-            champsChoix1.style.display = 'block';
-        } else if (selectedOption === 'Sortie') {
-            champsChoix2.style.display = 'block';
-        }
+        libelleSelect.addEventListener('change', function() {
+            if (libelleSelect.value === 'Entree') {
+                champsChoix1.style.display = 'block';
+                champsChoix2.style.display = 'none';
+            } else if (libelleSelect.value === 'Sortie') {
+                champsChoix1.style.display = 'none';
+                champsChoix2.style.display = 'block';
+            } else {
+                champsChoix1.style.display = 'none';
+                champsChoix2.style.display = 'none';
+            }
+        });
     });
 </script>

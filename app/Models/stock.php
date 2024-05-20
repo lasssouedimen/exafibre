@@ -21,4 +21,5 @@ class stock extends Model
         'prixunitaire2',
         'valeur2',
     ];
+   
 }

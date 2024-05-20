@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use Schema;
+use App\Models\parametre;
+use Illuminate\Support\Facades\View;
+
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +23,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Schema::enableForeignKeyConstraints();
+        if (!app()->runningInConsole()) {
+            View::composer(['layout.menu','layout.header','welcome',('auth.login')], function ($view) {
+
+                $information = parametre::first();
+                $view->with('information', $information);
+            });
+        }
     }
 }

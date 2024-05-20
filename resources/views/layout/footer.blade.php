@@ -1,6 +1,6 @@
 <div class="clearfix"></div>
 <!-- Footer -->
-<footer class="site-footer">
+<footer class="site-footer" >
     <div class="footer-inner bg-white">
         <div class="row">
             <div class="col-sm-6">
@@ -12,9 +12,8 @@
         </div>
     </div>
 </footer>
-<!-- /.site-footer -->
-</div>
-<!-- /#right-panel -->
+
+</div> 
 
 <!-- Scripts -->
 <script src="{{asset('https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js')}}"></script>

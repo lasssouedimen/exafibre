@@ -7,7 +7,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="content-wrapper">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row mt-3">
                     <div class="col-lg-12">
                         <div class="card" style="background-color: rgba(255, 255, 255, 0.488);">

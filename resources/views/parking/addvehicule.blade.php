@@ -1,4 +1,4 @@
-<title> Techniciens | ExaFibre  </title>
+
 @include('layout.menu')
 @include('layout.header')
 <title> parking | ExaFibre  </title>

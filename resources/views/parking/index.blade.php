@@ -53,7 +53,7 @@
 
 
                                                 @if ($parking->dispo == 0)
-                                                    <td style="font-size:10"><svg xmlns="http://www.w3.org/2000/svg"
+                                                    <td style="font-size:9"><svg xmlns="http://www.w3.org/2000/svg"
                                                             width="16" height="16" fill="currentColor"
                                                             class="bi bi-truck-front" viewBox="0 0 16 16">
                                                             <path
@@ -62,7 +62,7 @@
                                                                 d="M1 2.5A2.5 2.5 0 0 1 3.5 0h9A2.5 2.5 0 0 1 15 2.5v9c0 .818-.393 1.544-1 2v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5V14H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2a2.5 2.5 0 0 1-1-2zM3.5 1A1.5 1.5 0 0 0 2 2.5v9A1.5 1.5 0 0 0 3.5 13h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 12.5 1z" />
                                                         </svg><i class="bi bi-truck-front"></i> Disponible</td>
                                                 @elseif($parking->dispo == 1)
-                                                    <td style="font-size:10px"><svg xmlns="http://www.w3.org/2000/svg"
+                                                    <td style="font-size:12px"><svg xmlns="http://www.w3.org/2000/svg"
                                                             width="16" height="16" fill="currentColor"
                                                             class="bi bi-ev-front-fill" viewBox="0 0 16 16">
                                                             <path

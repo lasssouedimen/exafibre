@@ -20,9 +20,9 @@
                                             class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                             <path
                                                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
-                                        </svg></a>                             
+                                        </svg></a>
 
-                                    <a class="btn btn-light px-3"
+                                    <a href="{{ route('myPDF') }}" class="btn btn-light px-3"
                                         style="font-size:12px ; background-color:rgb(64, 33, 235) ;color:rgb(243, 243, 245) ; float: right ; margin-top:8px ">
 
                                         <i class="bi bi-printer"></i><svg xmlns="http://www.w3.org/2000/svg"
@@ -36,12 +36,8 @@
                                     <div class="card-header"><strong>Fiche de Stock</strong></div>
                                     <div class="card-body card-block">
                                     </div>
-                                    @if ($message = Session::get('success'))
-                                        <div class="alert alert-success">
-                                            <p>{{ $message }}</p>
-                                        </div>
-                                    @endif
-                                </div>
+                                   
+                                
                                 <table id="example" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
@@ -66,26 +62,55 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($stocks as $stocks)
-                                        @if( $stocks->libellé == "Entree" )
+                                        @php
+                                            $stock = 0;
+                                            $stock_value = 0;
+                                        @endphp
+                                        @foreach ($stocks as $stockItem)
+                                            @php
+                                                if ($stockItem->libellé == 'Entree') {
+                                                    $stock += $stockItem->qte;
+                                                    $stock_value += $stockItem->valeur;
+                                                } elseif ($stockItem->libellé == 'Sortie') {
+                                                    $stock -= $stockItem->qte1;
+                                                    $stock_value -= $stockItem->valeur1;
+                                                }
+                                            @endphp
+                                            
+
                                             <tr>
-                                                <td> {{ $stocks->date }}</td>
-                                                <td>{{ $stocks->libellé }}</td>
-                                                <td>{{ $stocks->qte }}</td>
-                                                <td>{{ $stocks->prixunitaire }}€</td>
-                                                <td>{{ $stocks->valeur }}</td>
                                                
-                                                @elseif($stocks->libellé == "Sortie" )
-                                                <td> {{ $stocks->date }}</td>
-                                                <td>{{ $stocks->libellé }}</td>
-                                                <td>{{ $stocks->qte1 }}</td>
-                                                <td>{{ $stocks->prixunitaire1 }}€</td>
-                                                <td>{{ $stocks->valeur1 }}€</td>
+                                               
+                                                @if ($stockItem->libellé == 'Entree') {
+                                                    <td>{{ $stockItem->date }}</td>
+                                                    <td>{{ $stockItem->libellé }}</td>
+                                                    <td>{{ $stockItem->qte }}</td>
+                                                    <td>{{ $stockItem->prixunitaire}}€</td>
+                                                  <td>{{ $stockItem->valeur}}€</td>
+                                                  <td>{{ $stockItem->qte1 }}</td>
+                                                  <td>{{ $stockItem->prixunitaire1 }}</td>
+                                                  <td>{{ $stockItem->valeur1 }}</td>
+                                                  <td>{{ $stock }}</td>
+                                                  <td>{{ $stockItem->prixunitaire2 }}</td>
+                                                  <td>{{ $stock_value }}€</td>
                                                 
-                                               @endif
-                                               <td>{{ $stocks->qte2 }}</td>
-                                               <td>{{ $stocks->prixunitaire2 }}</td>
-                                               <td>{{ $stocks->valeur2 }}€</td>
+                                                }@elseif ($stockItem->libellé == 'Sortie') {
+                                                    <td>{{ $stockItem->date }}</td>
+                                                    <td>{{ $stockItem->libellé }}</td>
+                                                    <td>{{ $stockItem->qte }}</td>
+                                                    <td>{{ $stockItem->prixunitaire}}</td>
+                                                  <td>{{ $stockItem->valeur}}</td>
+                                                    <td>{{ $stockItem->qte1 }}</td>
+                                                    <td>{{ $stockItem->prixunitaire1 }}€</td>
+                                                   <td>{{ $stockItem->valeur1 }}€</td>
+                                                   <td>{{ $stock }}</td>
+                                                   <td>{{ $stockItem->prixunitaire2 }}</td>
+                                                   <td>{{ $stock_value }}€</td>
+                                                }
+                                        
+                                          @endif
+                                               
+                                                
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -101,14 +126,8 @@
 
         </div>
     </div>
-  
+</div>
 
 </main>
 
 @include('layout.footer')
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#example').DataTable();
-    });
-</script>

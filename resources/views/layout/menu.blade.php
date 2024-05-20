@@ -88,7 +88,7 @@
                 @if (Auth::user()->role == 0)
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href=""><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                            <a href=""><i class="menu-icon fa fa-laptop"></i>Dashboard {{$information->nom}}</a>
                         </li>
                         <li class="menu-title">client</li>
 
@@ -157,7 +157,7 @@
                         <li class="menu-item-has-children dropdown">
                             <a href="#"> <i class="menu-icon fa fa-bar-chart-o"></i>Analyse de donnees</a>
                             <ul class="sub-menu children dropdown-menu">
-                                <li><i class="menu-icon fa fa-line-chart"></i><a href="charts-chartjs.html">Chart
+                                <li><i class="menu-icon fa fa-line-chart"></i><a href="">Chart
                                         JS</a></li>
                                 <li><i class="menu-icon fa fa-area-chart"></i><a href="charts-flot.html">Flot
                                         Chart</a></li>
@@ -170,7 +170,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false"> <i class="menu-icon fa fa-map-marker"></i>Maps</a>
                             <ul class="sub-menu children dropdown-menu">
-                                <li><i class="menu-icon fa fa-map-o"></i><a href="maps-gmap.html"> Maps de travail</a>
+                                <li><i class="menu-icon fa fa-map-o"></i><a href="{{ route('maps.index') }}"> Maps de travail</a>
                                 </li>
                                 <li><i class="menu-icon fa fa-street-view"></i><a href="maps-vector.html">Maps de
                                         voiture</a></li>

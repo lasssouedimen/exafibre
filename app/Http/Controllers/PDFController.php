@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PDF;
+use App\Models\PDF as ModelsPDF;
 use Illuminate\Http\Request;
 use App\Models\stock;
+use Dompdf\Dompdf;
+use PDF;
+use PDO;
 
 class PDFController extends Controller
 {
@@ -12,9 +15,9 @@ class PDFController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    { 
         $stocks = stock::all();
-        return view("pdf.PDF");
+        return view("pdf.PDF", compact('stocks'));
    
     }
     public function generatePDF()
@@ -24,8 +27,8 @@ class PDFController extends Controller
             'date' => date('m/d/Y'),
             
         ]; 
-            
-        $pdf = PDF::loadView('pdf.PDF', $data);
+
+        $pdf = pdf::loadView('pdf.index', $data);
      
         return $pdf->download('facture.pdf');
     }
