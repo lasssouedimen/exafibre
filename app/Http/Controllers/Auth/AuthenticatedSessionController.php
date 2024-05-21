@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use App\Models\User; 
+use Illuminate\Support\Facades\Redirect;
+
 class AuthenticatedSessionController extends Controller
 {
     /**
@@ -26,27 +28,33 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        
         $content = $request->getContent();
         $email = Str::between($content, "email=", "&");
         $email = urldecode($email);
-        $user= User::where('email',$email)->first();
-        //kenou admin
-        if($user->role==0){
+
+        $user = User::where('email', $email)->first();
+
+        if (!$user) {
+            return redirect()->route('login')->withErrors(['email' => 'Email not found.']);
+        }
+
+        if ($user->role == 0) {
             $request->authenticate();
             $request->session()->regenerate();
             return redirect()->intended(RouteServiceProvider::HOME);
         }
-        //kenou chef d'equipe
-        if($user->role==1 && $user->archv==0){
-            $request->authenticate();
-            $request->session()->regenerate();
-            return redirect()->route('dashboardchef');
-        }elseif($user->role==1 && $user->archv==1){
-         
-            return redirect(route('login'))-> with('Désolé, vous êtes bloqué.');
-           
+
+        if ($user->role == 1) {
+            if ($user->archv == 0) {
+                $request->authenticate();
+                $request->session()->regenerate();
+                return redirect()->route('dashboardchef');
+            } elseif ($user->archv == 1) {
+                return redirect()->route('login')->with('error', 'Désolé, vous êtes bloqué.');
+            }
         }
+
+        return redirect()->route('login')->with('error', 'Unauthorized access.');
     }
 
     /**

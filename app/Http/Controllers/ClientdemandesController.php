@@ -21,19 +21,30 @@ class ClientdemandesController extends Controller
      */
     public function store(Request $request)
     {
-        $clientdemandes = clientdemandes::create([
-            'prenom'=>$request->prenom,
-            'nomfamille'=>$request->nomfamille,
-            'telephone'=>$request->telephone,
-            'mail'=>$request->mail,
-            'ville'=>$request->ville,
-            'pays'=>$request->pays,
-            'codepostal'=>$request->codepostal,
-            'remarque'=>$request->remarque,
-           ]);
-           $message = $request->prenom . ' merci pour votre confiance. Votre demande a été envoyée !'; 
-         return redirect(route('clientdemandes.index'))->with('message', $message);
-    }
+            $request->validate([
+                'latitude' => 'required|numeric',
+                'longitude' => 'required|numeric',
+                'pays' => 'required|string|max:255',
+                'ville' => 'required|string|max:255',
+                // Validez d'autres champs du formulaire ici
+            ]);
+    
+            Clientdemandes::create([
+                'prenom' => $request->prenom,
+                'nomfamille' => $request->nomfamille,
+                'telephone' => $request->telephone,
+                'mail' => $request->mail,
+                'ville' => $request->ville,
+                'pays' => $request->pays,
+                'adresse' => $request->adresse,
+                'remarque' => $request->remarque,
+                'latitude' => $request->latitude,
+                'longitude' => $request->longitude,
+            ]);
+            $message = $request->prenom . ' merci pour votre confiance. Votre demande a été envoyée !'; 
+            return redirect(route('clientdemandes.index'))->with('message', $message);
+        }
+        
 
     /**
      * Display the specified resource.

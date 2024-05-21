@@ -16,7 +16,11 @@
             content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
-
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <style>
+            #map { height: 200px; width: 80%; }
+        </style>
 
         <link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-in.html" />
 
@@ -31,14 +35,12 @@
     </head>
 
 <body>
-    <main class="d-flex w-100"
-        style="background-color:white ; background-image:url({{ asset('assets/img/icons/logotranspar3.png') }});">
+    <main class="d-flex w-100"  style="background-color:white ; background-image:url({{ asset('assets/img/icons/logotranspar3.png') }});">
         <div class="container d-flex flex-column">
             <div class="row vh-100">
                 <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
                     <div class="d-table-cell align-middle">
                         <div class="card" style="background-color:rgb(243, 242, 248) ">
-
                             <div class="card-body">
                                 <div class="m-sm-4">
                                     <div class="text-center">
@@ -48,6 +50,7 @@
                                                 Service</small>
 
                                         </div>
+                                        
                                           <form action="{{ route('clientdemandes.store') }}" method="post"
                                             enctype="multipart/form-data" class="form-horizontal">
                                             @csrf
@@ -74,79 +77,28 @@
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-2"><label for="telephone"
-                                                        class=" form-control-label">numero
-                                                        telephonique</label></div>
+                                                        class=" form-control-label">numero telephone
+                                                        </label></div>
                                                 <div class="col-12 col-md-9"><input type="number" id="telephone"
                                                         name="telephone" placeholder="Enter number" class="form-control"
                                                         required></div>
                                             </div>
 
+                                            <div id="map"></div>
+                                            
+                                            <input type="hidden" id="latitude" name="latitude">
+                                            <input type="hidden" id="longitude" name="longitude">
                                             <div class="row form-group">
-                                                <div class="col col-md-2"><label for="ville"
-                                                        class=" form-control-label">ville</label></div>
-                                                <div class="col-12 col-md-9">
-                                                    <select name="ville" id="ville" class="form-control" required>
-                                                        <option value="0">s'il vous plait selectioner votre
-                                                            ville</option>
-                                                        <option value="Marseille">Marseille</option>
-                                                        <option value="Lyon">Lyon</option>
-                                                        <option value="Toulouse">Toulouse </option>
-                                                        <option value="Nice">Nice </option>
-                                                        <option value="paris">paris </option>
-                                                    </select>
-                                                </div>
+                                            <div class="col-12 col-md-4"><input type="text" id="pays" name="pays" placeholder="Pays" class="form-control"
+                                                required></div>
+                                                <div class="col-12 col-md-4"><input type="text" id="ville" name="ville" placeholder="Ville" class="form-control"
+                                                    required></div>
                                             </div>
+                                    
 
-                                            <div class="row form-group">
-                                                <div class="col col-md-2"><label for="pays"
-                                                        class=" form-control-label">pays</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <select name="pays" id="pays"
-                                                        class="form-control-sm form-control" required>
-                                                        <option value="0">s'il vous plait selectionner votre
-                                                            pays</option>
-                                                        <option value="france">france </option>
-
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="row form-group">
-                                                <div class="col col-md-2"><label for="codepostal"
-                                                        class=" form-control-label">code postal
-                                                    </label></div>
-                                                <div class="col col-md-9">
-                                                    <select name="codepostal" id="codepostal" multiple=""
-                                                        class="form-control" required>
-                                                        <option value="1">75001</option>
-                                                        <option value="2">75002</option>
-                                                        <option value="3">75003</option>
-                                                        <option value="4">75004</option>
-                                                        <option value="5">75005</option>
-                                                        <option value="6">75006</option>
-                                                        <option value="7">75007</option>
-                                                        <option value="8">75008</option>
-                                                        <option value="9">75009</option>
-                                                        <option value="10">75010</option>
-                                                        <option value="11">75011</option>
-                                                        <option value="12">75012</option>
-                                                        <option value="13">75013</option>
-                                                        <option value="14">75014</option>
-                                                        <option value="15">75015</option>
-                                                        <option value="16">75016</option>
-                                                        <option value="17">75116</option>
-                                                        <option value="18">75017</option>
-                                                        <option value="19">75018</option>
-                                                        <option value="20">75019</option>
-                                                        <option value="21">75020</option>
-                                                        <option value="22">75000</option>
-                                                    </select>
-                                                </div>
-                                            </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-2"><label for="remarque"
-                                                        class=" form-control-label">Description :</label>
+                                                        class=" form-control-label">Description </label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
                                                     <textarea name="remarque" id="remarque" rows="9" placeholder="Content..." class="form-control" required></textarea>
@@ -183,7 +135,34 @@
 
 </html>
 
+<script>
+    var map = L.map('map').setView([46.603354, 1.888334], 6);
 
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    var marker;
+
+    function onMapClick(e) {
+        if (marker) {
+            map.removeLayer(marker);
+        }
+        marker = L.marker(e.latlng).addTo(map);
+        document.getElementById('latitude').value = e.latlng.lat;
+        document.getElementById('longitude').value = e.latlng.lng;
+
+        // Utilisez un service de géocodage inversé pour obtenir le pays et la ville
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${e.latlng.lat}&lon=${e.latlng.lng}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('pays').value = data.address.country;
+                document.getElementById('ville').value = data.address.city || data.address.town || data.address.village;
+            });
+    }
+
+    map.on('click', onMapClick);
+</script>
 <!-- Scripts -->
 <script src="{{ asset('https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js') }}"></script>

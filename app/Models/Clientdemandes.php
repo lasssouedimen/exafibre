@@ -15,8 +15,10 @@ class Clientdemandes extends Model
         'mail',
         'ville',
         'pays',
-        'codepostal',
+        'adresse',
         'remarque',
-        'etat'
+        'etat',
+        'longitude',
+        'latitude'
     ];
 }

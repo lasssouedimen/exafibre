@@ -15,7 +15,7 @@ class MapsController extends Controller
     public function index()
     {
         
-            $demandes = Clientdemandes::all();
+            $demandes = Clientdemandes::where('etat',2)->get();
             return view('maps.maps', compact('demandes'));
         
     }

@@ -19,9 +19,11 @@ return new class extends Migration
             $table->string('mail')->nullable();  
             $table->string('ville')->nullable();  
             $table->string('pays')->nullable();
-            $table->integer('codepostal')->nullable();
+            $table->string('adresse')->nullable();
             $table->string('remarque')->nullable();
             $table->string('etat')->nullable();
+            $table->decimal('latitude', 10, 7)->nullable();
+            $table->decimal('longitude', 10, 7)->nullable();
             $table->timestamps();
         });
     }

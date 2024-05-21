@@ -14,37 +14,41 @@ class demandeTableSeeder extends Seeder
     public function run(): void
     {
         Clientdemandes::create([
-        'prenom'=>'imen',
-        'nomfamille'=>'lassoued',
-        'telephone'=>'27458963',
-        'mail'=>'amouna@gmail',
-        'ville'=>'lyon',
-        'pays'=>'france',
-        'codepostal'=>'75001',
-        'remarque'=>'rien de remarque',
-        'etat'=>'0',
+            'prenom' => 'imen',
+            'nomfamille' => 'lassoued',
+            'telephone' => '27458963',
+            'mail' => 'amouna@gmail',
+            'ville' => 'Sfax',
+            'pays' => 'Tunisie',
+            'adresse' => "QP4C+RH5، طريق العين, Sfax",
+            'remarque' => 'rien de remarque',
+            'etat' => '2',
+            'latitude' => 34.7406,
+            'longitude' => 10.7603,
         ]);
-        
+
         Clientdemandes::create([
-            'prenom'=>'houda',
-            'nomfamille'=>'jhone',
-            'telephone'=>'+54515145',
-            'mail'=>'jhone@gmail',
-            'ville'=>'toulouse',
-            'pays'=>'france',
-            'codepostal'=>'75005',
-            'remarque'=>'je veut un service rapide sil vous plait',
-            'etat'=>'0',
-            ]);
-            
-        Clientdemandes::create([
+            'prenom' => 'houda',
+            'nomfamille' => 'jhone',
+            'telephone' => '+54515145',
+            'mail' => 'jhone@gmail',
+            'ville' => 'Ben Girden',
+            'pays' => 'Tunisie',
+            'adresse' => "466C+QP, Ben Gardane",
+            'remarque' => 'je veut un service rapide sil vous plait',
+            'etat' => '2',
+            'latitude' => 33.1378,
+            'longitude' => 11.2178,
+        ]);
+
+        /* Clientdemandes::create([
             'prenom'=>'maria',
             'nomfamille'=>'mars',
             'telephone'=>'+284975621',
             'mail'=>'maria@gmail',
             'ville'=>'nice',
             'pays'=>'france',
-            'codepostal'=>'75021',
+            'adresse'=>'75021',
             'remarque'=>'',
             'etat'=>'0',
             ]);
@@ -56,10 +60,9 @@ class demandeTableSeeder extends Seeder
             'mail'=>'yass@gmail',
             'ville'=>'paris',
             'pays'=>'france',
-            'codepostal'=>'75011',
+            'adresse'=>'75011',
             'remarque'=>'rien de remarque',
             'etat'=>'0',
-            ]);
+            ]); */
     }
 }
-    

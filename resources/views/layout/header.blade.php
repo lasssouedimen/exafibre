@@ -2,9 +2,9 @@
     <header id="header" class="header">
         <div class="top-left">
             <div class="navbar-header">
-                <a class="navbar-brand"><img src="{{ asset('images') }}/{{$information->logo}}"
+             <a class="navbar-brand"><img src="{{ asset('images') }}/{{$information->logo}}"
                     alt="Pas de photo" style=" object-fit: cover;width: 55%;height: 44%;"></a>
-                <a class="navbar-brand hidden"><img src="{{asset('images')}}/{{$information->logo}}" alt="Logo2"></a>
+           <a class="navbar-brand hidden"><img src="{{asset('images')}}/{{$information->logo}}" alt="Logo2"></a> 
                 <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
             </div>
         </div>
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-                @if (Auth::user()->role == 0)
+                @if (Auth::check() && Auth::user()->role == 0)
                 <div class="user-area dropdown float-right">
                     <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
@@ -74,7 +74,7 @@
                         </a>
                     </div>
                 </div>
-                @elseif(Auth::user()->role == 1)
+                @elseif(Auth::check() && Auth::user()->role == 1)
                 <div class="user-area dropdown float-right">
                     <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">

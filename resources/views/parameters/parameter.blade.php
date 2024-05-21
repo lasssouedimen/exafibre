@@ -215,8 +215,8 @@
         if(tel.length==0){
             msg=msg+"- Vous devez choisir le numéro de telephone !</br>";
             find=1;
-        }else if(tel.length!=8){
-            msg=msg+"- Le numéro doit contenir 8 chiffre!</br>";
+        }else if(tel.length <8){
+            msg=msg+"- Le numéro doit contenir au moins 8 chiffre !</br>";
             find=1;
         }
         if(Adresse.length ==0){

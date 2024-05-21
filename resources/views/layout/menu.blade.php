@@ -85,7 +85,7 @@
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
-                @if (Auth::user()->role == 0)
+                @if (Auth::check() && Auth::user()->role == 0)
                     <ul class="nav navbar-nav">
                         <li>
                             <a href=""><i class="menu-icon fa fa-laptop"></i>Dashboard {{$information->nom}}</a>
@@ -182,9 +182,8 @@
                         </li>
                     </ul>
             </div>
-        </nav>
-    </aside>
-@elseif(Auth::user()->role == 1)
+     
+            @elseif(Auth::check() && Auth::user()->role == 1)
 <ul class="nav navbar-nav">
     <li class="menu-title">client</li>
     <li class="menu-item-has-children dropdown">
