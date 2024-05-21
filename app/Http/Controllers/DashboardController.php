@@ -49,6 +49,10 @@ class DashboardController extends Controller
         })->toArray();
         $achatSums = $achat->pluck('sum')->toArray();
 
-        return view('dashboard', compact('nbChefEq', 'nbTech', 'nbPjEnc', 'nbVoiture','venteSums','achatSums','achatMonths'));
+        //courbe2
+        $nbPjEnC=Clientdemandes::where('etat',2)->count();
+        $nbPjAffect=Clientdemandes::where('etat',3)->count();
+
+        return view('dashboard', compact('nbChefEq', 'nbTech', 'nbPjEnc', 'nbVoiture','venteSums','achatSums','achatMonths','nbPjEnC','nbPjAffect'));
     }
 }

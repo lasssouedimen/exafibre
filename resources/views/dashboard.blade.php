@@ -94,12 +94,21 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="mb-3">Doughut Chart </h4>
+                    <canvas id="doughutChart"></canvas>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <!-- /.content -->
 <div class="clearfix"></div>
 
 <script>
+    //courbe1
     var venteSums = @json($venteSums);
     var achatMonths = @json($achatMonths);
     var achatSums = @json($achatSums);
@@ -140,5 +149,36 @@
             }
         }
     });
+
+
+    //courbe2
+    var nbPjAffect = @json($nbPjAffect);
+    var nbPjEnC = @json($nbPjEnC);
+    var ctx = document.getElementById( "doughutChart" );
+    ctx.height = 150;
+    var myChart = new Chart( ctx, {
+        type: 'doughnut',
+        data: {
+            datasets: [ {
+                data: [ nbPjAffect,nbPjEnC],
+                backgroundColor: [
+                                    "rgba(0, 194, 146,0.9)",
+                                    "rgba(0,0,0,0.07)"
+                                ],
+                hoverBackgroundColor: [
+                                    "rgba(0, 194, 146,0.9)",
+                                    "rgba(0,0,0,0.07)"
+                                ]
+
+                            } ],
+            labels: [
+                            "valider sans affectation",
+                            "valider"
+                        ]
+        },
+        options: {
+            responsive: true
+        }
+    } );
 </script>
 @include('layout.footer')
