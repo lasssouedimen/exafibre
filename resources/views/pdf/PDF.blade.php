@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Example 1</title>
+    <title>Pdf Stock</title>
     <link rel="stylesheet" href="style.css" media="all" />
     <style>
         .clearfix:after {
@@ -151,8 +151,8 @@
 
 <body>
 
-<img src="{{asset('assets/img/icons/Sans titr.jpg')}}" alt="Logo">
-    <div class="card-header"><strong>Fiche de Stock   </strong></div>
+{{-- <img src="{{asset('assets/img/icons/Sans titr.jpg')}}" alt="Logo" style="width: 200px;"> --}}
+    <div class="card-header"><h1>Fiche de Stock   </h1></div>
     <br>
     <br>
     <div class="card-body card-block">
@@ -187,36 +187,60 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($stocks as $stocks)
-                @if ($stocks->libellé == 'Entree')
-                    <tr>
-                        <td> {{ $stocks->date }}</td>
-                        <td>{{ $stocks->libellé }}</td>
-                        <td>{{ $stocks->qte }}</td>
-                        <td>{{ $stocks->prixunitaire }}€</td>
-                        <td>{{ $stocks->valeur }}</td>
-                    @elseif($stocks->libellé == 'Sortie')
-                        <td> {{ $stocks->date }}</td>
-                        <td>{{ $stocks->libellé }}</td>
-                        <td>{{ $stocks->qte1 }}</td>
-                        <td>{{ $stocks->prixunitaire1 }}€</td>
-                        <td>{{ $stocks->valeur1 }}€</td>
-                @endif
-                <td>{{ $stocks->qte2 }}</td>
-                <td>{{ $stocks->prixunitaire2 }}</td>
-                <td>{{ $stocks->valeur2 }}€</td>
+            @php
+                $stock = 0;
+                $stock_value = 0;
+            @endphp
+            @foreach ($stocks as $stockItem)
+                @php
+                    if ($stockItem->libellé == 'Entree') {
+                        $stock += $stockItem->qte;
+                        $stock_value += $stockItem->valeur;
+                    } elseif ($stockItem->libellé == 'Sortie') {
+                        $stock -= $stockItem->qte1;
+                        $stock_value -= $stockItem->valeur1;
+                    }
+                @endphp
+                
+
+                <tr>
+                   
+                   
+                    @if ($stockItem->libellé == 'Entree') {
+                        <td>{{ $stockItem->date }}</td>
+                        <td>{{ $stockItem->libellé }}</td>
+                        <td>{{ $stockItem->qte }}</td>
+                        <td>{{ $stockItem->prixunitaire}}€</td>
+                      <td>{{ $stockItem->valeur}}€</td>
+                      <td>{{ $stockItem->qte1 }}</td>
+                      <td>{{ $stockItem->prixunitaire1 }}</td>
+                      <td>{{ $stockItem->valeur1 }}</td>
+                      <td>{{ $stock }}</td>
+                      <td>{{ $stockItem->prixunitaire2 }}</td>
+                      <td>{{ $stock_value }}€</td>
+                    
+                    }@elseif ($stockItem->libellé == 'Sortie') {
+                        <td>{{ $stockItem->date }}</td>
+                        <td>{{ $stockItem->libellé }}</td>
+                        <td>{{ $stockItem->qte }}</td>
+                        <td>{{ $stockItem->prixunitaire}}</td>
+                      <td>{{ $stockItem->valeur}}</td>
+                        <td>{{ $stockItem->qte1 }}</td>
+                        <td>{{ $stockItem->prixunitaire1 }}€</td>
+                       <td>{{ $stockItem->valeur1 }}€</td>
+                       <td>{{ $stock }}</td>
+                       <td>{{ $stockItem->prixunitaire2 }}</td>
+                       <td>{{ $stock_value }}€</td>
+                    }
+            
+              @endif
+                   
+                    
                 </tr>
             @endforeach
         </tbody>
     </table>
     
-    <a class="btn " type="button" style="margin-left: 352px; padding-left: 200px; background-color: #000000;" href="{{route('generate-pdf')}}" >
 </body>
 
 
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#example').DataTable();
-        });
-    </script>

@@ -21,9 +21,8 @@
                                             <path
                                                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
                                         </svg></a>
-
-                                    <a href="{{ route('myPDF') }}" class="btn btn-light px-3"
-                                        style="font-size:12px ; background-color:rgb(64, 33, 235) ;color:rgb(243, 243, 245) ; float: right ; margin-top:8px ">
+                                        <a href="{{ route('generate-pdf') }}" class="btn btn-light px-3"
+                                        style="font-size:12px ; background-color:red;color:rgb(243, 243, 245) ; float: right ; margin-top:8px ">
 
                                         <i class="bi bi-printer"></i><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-printer"

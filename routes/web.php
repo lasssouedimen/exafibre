@@ -10,7 +10,7 @@ use App\Http\Controllers\ParkingController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\ChefEquipeController;
 use App\Http\Controllers\ParametreController;
-use App\Http\Controllers\PDFController;
+
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\MapsController;
 
@@ -67,12 +67,11 @@ Route::get('/chefEquipechefarch', [ChefEquipeController::class, 'chefarch'])->na
 Route::get('/chefEquipe/archive/{id}/{etat}', [ChefEquipeController::class, 'archive'])->name('chefEquipe.archive');
 Route::get('/chefEquipechefarch', [ChefEquipeController::class, 'chefarch'])->name('chefEquipearchive');
 
-Route::get('generate-pdf', [PDFController::class, 'generatePDF'])->name('generate-pdf');
+
+Route::get('generate-pdf', [StockController::class, 'generatePDF'])->name('generate-pdf');
 
 
 Route::resource('prof', ProfilesController::class);
-
-Route::get('myPDF', [PDFController::class,'index'])->name('myPDF');
 
 Route::get('/maps', function () {
     return view('maps');

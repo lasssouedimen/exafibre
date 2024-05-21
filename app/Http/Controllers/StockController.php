@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\stock;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use Dompdf\Dompdf;
+
+use PDF;
+
 class StockController extends Controller
 {
     /**
@@ -67,6 +69,13 @@ class StockController extends Controller
     public function destroy(stock $stock)
     {
         //
+    }
+
+    public function generatePDF()
+    {
+        $stocks = stock::all();
+        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, "defaultPaperSize" => "a4", "dpi" => 130])->loadView("pdf.PDF", compact('stocks'))->setPaper('A4', 'portrait');
+        return $pdf->stream();
     }
    
 }
