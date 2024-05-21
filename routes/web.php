@@ -14,6 +14,8 @@ use App\Http\Controllers\ParametreController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\MapsController;
 
+use App\Http\Controllers\DashboardController;
+
 
     
 /*
@@ -35,9 +37,9 @@ Route::get('/dashboardchef', function () {
     return view('dashboardchef');
 })->middleware(['auth', 'verified'])->name('dashboardchef');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::resource('/dashboard', DashboardController::class)->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
