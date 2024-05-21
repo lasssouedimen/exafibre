@@ -50,9 +50,34 @@ class DashboardController extends Controller
         $achatSums = $achat->pluck('sum')->toArray();
 
         //courbe2
-        $nbPjEnC=Clientdemandes::where('etat',2)->count();
-        $nbPjAffect=Clientdemandes::where('etat',3)->count();
+        $nbPjEnC = Clientdemandes::where('etat', 2)->count();
+        $nbPjAffect = Clientdemandes::where('etat', 3)->count();
 
-        return view('dashboard', compact('nbChefEq', 'nbTech', 'nbPjEnc', 'nbVoiture','venteSums','achatSums','achatMonths','nbPjEnC','nbPjAffect'));
+        //courbe 3
+        $end = Carbon::now();
+        $start = Carbon::now()->subMonths(12);
+        $accepter = Clientdemandes::select(DB::raw('COUNT(*) as sum'), DB::raw('MONTH(created_at) as month'))
+            ->whereBetween('created_at', [$start, $end])
+            ->whereIn('etat', [2, 3])
+            ->groupBy(DB::raw('MONTH(created_at)'))
+            ->orderBy(DB::raw('MONTH(created_at)'), 'asc')
+            ->get();
+        $accepterMonths = $accepter->map(function ($item) {
+            return Carbon::createFromDate(null, $item->month)->format('F');
+        })->toArray();
+        $accepterSums = $accepter->pluck('sum')->toArray();
+
+        $refuser = Clientdemandes::select(DB::raw('COUNT(*) as sum'), DB::raw('MONTH(created_at) as month'))
+            ->whereBetween('created_at', [$start, $end])
+            ->where('etat',1)
+            ->groupBy(DB::raw('MONTH(created_at)'))
+            ->orderBy(DB::raw('MONTH(created_at)'), 'asc')
+            ->get();
+        $refuserMonths = $refuser->map(function ($item) {
+            return Carbon::createFromDate(null, $item->month)->format('F');
+        })->toArray();
+        $refuserSums = $refuser->pluck('sum')->toArray();
+
+        return view('dashboard', compact('nbChefEq', 'nbTech', 'nbPjEnc', 'nbVoiture', 'venteSums', 'achatSums', 'achatMonths', 'nbPjEnC', 'nbPjAffect','accepterSums','refuserSums','refuserMonths'));
     }
 }

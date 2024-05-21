@@ -102,6 +102,14 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="mb-3">Bar chart </h4>
+                    <canvas id="barChart"></canvas>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <!-- /.content -->
@@ -121,14 +129,14 @@
             labels: achatMonths,
             datasets: [
                 {
-                    label: "Vente",
+                    label: "sortie",
                     borderColor: "rgba(0,0,0,.09)",
                     borderWidth: "1",
                     backgroundColor: "rgba(0,0,0,.07)",
                     data: venteSums
                 },
                 {
-                    label: "Achat",
+                    label: "entree",
                     borderColor: "rgba(0, 194, 146, 0.9)",
                     borderWidth: "1",
                     backgroundColor: "rgba(0, 194, 146, 0.5)",
@@ -178,6 +186,44 @@
         },
         options: {
             responsive: true
+        }
+    } );
+
+    //courbe 3
+    var refuserMonths = @json($refuserMonths);
+    var refuserSums = @json($refuserSums);
+    var accepterSums = @json($accepterSums);
+    var ctx = document.getElementById( "barChart" );
+    //    ctx.height = 200;
+    var myChart = new Chart( ctx, {
+        type: 'bar',
+        data: {
+            labels: refuserMonths,
+            datasets: [
+                {
+                    label: "Accepter",
+                    data:accepterSums,
+                    borderColor: "rgba(0, 194, 146, 0.9)",
+                    borderWidth: "0",
+                    backgroundColor: "rgba(0, 194, 146, 0.5)"
+                            },
+                {
+                    label: "Refuser",
+                    data:refuserSums,
+                    borderColor: "rgba(0,0,0,0.09)",
+                    borderWidth: "0",
+                    backgroundColor: "rgba(0,0,0,0.07)"
+                            }
+                        ]
+        },
+        options: {
+            scales: {
+                yAxes: [ {
+                    ticks: {
+                        beginAtZero: true
+                    }
+                                } ]
+            }
         }
     } );
 </script>
