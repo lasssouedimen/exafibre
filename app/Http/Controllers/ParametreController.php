@@ -51,7 +51,7 @@ class ParametreController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, parametre $parameter)
+    public function update(Request $request, $id)
     {
         $parameter = parametre::find($id);
         $logoName="";

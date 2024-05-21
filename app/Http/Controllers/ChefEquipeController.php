@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\WelcomeEmail;
+use Illuminate\Support\Facades\Mail;
 
 class ChefEquipeController extends Controller
 {
@@ -62,7 +63,7 @@ class ChefEquipeController extends Controller
                 'email' => $request->mail,
                 'password'=>$request->Tel,
                ];
-        \Mail::to($request->mail)->send(new WelcomeEmail($data));
+        Mail::to($request->mail)->send(new WelcomeEmail($data));
 
         $message = $request->nom . ' crée avec succée !';
         return redirect(route('chefEquipe.index'))->with('message', $message);}

@@ -88,7 +88,7 @@
                 @if (Auth::check() && Auth::user()->role == 0)
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href=""><i class="menu-icon fa fa-laptop"></i>Dashboard {{$information->nom}}</a>
+                            <a href="{{route('dashboard.index')}}"><i class="menu-icon fa fa-laptop"></i>Dashboard {{$information->nom}}</a>
                         </li>
                         <li class="menu-title">client</li>
 

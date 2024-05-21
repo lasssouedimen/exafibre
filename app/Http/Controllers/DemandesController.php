@@ -64,27 +64,5 @@ class DemandesController extends Controller
 
 
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Demandes $demandes)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Demandes $demandes)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Demandes $demandes)
-    {
-        //
-    }
+  
 }

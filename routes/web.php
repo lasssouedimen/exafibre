@@ -15,7 +15,7 @@ use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\MapsController;
 
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\DashboardchefController;
 
     
 /*
@@ -40,6 +40,8 @@ Route::get('/dashboardchef', function () {
 
 
 Route::resource('/dashboard', DashboardController::class)->middleware(['auth', 'verified']);
+
+Route::resource('dashboardchef', DashboardchefController::class)->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -72,6 +74,8 @@ Route::get('/chefEquipechefarch', [ChefEquipeController::class, 'chefarch'])->na
 
 Route::get('generate-pdf', [StockController::class, 'generatePDF'])->name('generate-pdf');
 
+
+Route::post('/check-stock', [StockController::class, 'checkStock'])->name('check.stock');
 
 Route::resource('prof', ProfilesController::class);
 

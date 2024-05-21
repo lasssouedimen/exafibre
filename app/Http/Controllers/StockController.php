@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\stock;
+
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class StockController extends Controller
 {
@@ -22,6 +23,7 @@ class StockController extends Controller
     {
         return view('stocks.add');
     }
+   
 
 
     /**
