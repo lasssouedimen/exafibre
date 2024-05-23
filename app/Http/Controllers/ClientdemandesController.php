@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Clientdemandes;
 use Illuminate\Http\Request;
 
+
+
 class ClientdemandesController extends Controller
 {
     public function index()
@@ -41,6 +43,9 @@ class ClientdemandesController extends Controller
                 'latitude' => $request->latitude,
                 'longitude' => $request->longitude,
             ]);
+            
+          
+
             $message = $request->prenom . ' merci pour votre confiance. Votre demande a été envoyée !'; 
             return redirect(route('clientdemandes.index'))->with('message', $message);
         }

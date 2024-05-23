@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-flat-color-6">
+            <div class="card text-white bg-flat-color-3">
                 <div class="card-body">
                     <div class="card-left pt-1 float-left">
                         <h3 class="mb-0 fw-r">
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-flat-color-3">
+            <div class="card text-white bg-flat-color-1">
                 <div class="card-body">
                     <div class="card-left pt-1 float-left">
                         <h3 class="mb-0 fw-r">
@@ -66,7 +66,7 @@
             </div>
         </div>
         <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-flat-color-2">
+            <div class="card text-white bg-flat-color-3">
                 <div class="card-body">
                     <div class="card-left pt-1 float-left">
                         <h3 class="mb-0 fw-r">
@@ -89,7 +89,7 @@
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="mb-3">Line Chart </h4>
+                    <h4 class="mb-3">Diagramme de Flux de Matières Premières </h4>
                     <canvas id="lineChart"></canvas>
                 </div>
             </div>
@@ -97,12 +97,12 @@
         <div class="col-lg-4">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="mb-3">Doughut Chart </h4>
+                    <h4 class="mb-3">Diagramme Circulaire des Demandes Validées en Attente de Travaillés </h4>
                     <canvas id="doughutChart"></canvas>
                 </div>
             </div>
         </div>
-        <div class="col-lg-12">
+        <div class="col-lg-10">
             <div class="card">
                 <div class="card-body">
                     <h4 class="mb-3">Bar chart </h4>
@@ -130,17 +130,18 @@
             datasets: [
                 {
                     label: "sortie",
-                    borderColor: "rgba(0,0,0,.09)",
+                    borderColor: "#5f5f5f",
                     borderWidth: "1",
-                    backgroundColor: "rgba(0,0,0,.07)",
+                    backgroundColor: "#5f5f5f",
                     data: venteSums
                 },
                 {
                     label: "entree",
-                    borderColor: "rgba(0, 194, 146, 0.9)",
+                    borderColor: "#3353ff",
+                                   
                     borderWidth: "1",
-                    backgroundColor: "rgba(0, 194, 146, 0.5)",
-                    pointHighlightStroke: "rgba(26,179,148,1)",
+                    backgroundColor: "#3353ff",
+                    pointHighlightStroke: "#5f5f5f",
                     data: achatSums
                 }
             ]
@@ -170,18 +171,18 @@
             datasets: [ {
                 data: [ nbPjAffect,nbPjEnC],
                 backgroundColor: [
-                                    "rgba(0, 194, 146,0.9)",
-                                    "rgba(0,0,0,0.07)"
+                                    "#3353ff",
+                                    "#5f5f5f"
                                 ],
                 hoverBackgroundColor: [
-                                    "rgba(0, 194, 146,0.9)",
-                                    "rgba(0,0,0,0.07)"
+                                    "#3353ff",
+                                    "#5f5f5f"
                                 ]
 
                             } ],
             labels: [
-                            "valider sans affectation",
-                            "valider"
+                            "Demande valider en attend de travailler",
+                            "Demande en cours de travaille"
                         ]
         },
         options: {
@@ -203,16 +204,16 @@
                 {
                     label: "Accepter",
                     data:accepterSums,
-                    borderColor: "rgba(0, 194, 146, 0.9)",
+                    borderColor: "#5f5f5f",
                     borderWidth: "0",
-                    backgroundColor: "rgba(0, 194, 146, 0.5)"
+                    backgroundColor: "#3353ff"
                             },
                 {
                     label: "Refuser",
                     data:refuserSums,
-                    borderColor: "rgba(0,0,0,0.09)",
+                    borderColor: "#5f5f5f",
                     borderWidth: "0",
-                    backgroundColor: "rgba(0,0,0,0.07)"
+                    backgroundColor: "#5f5f5f"
                             }
                         ]
         },

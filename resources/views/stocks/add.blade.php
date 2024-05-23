@@ -24,12 +24,11 @@
                                     <div class="card-body card-block">
                                     </div>
                                     <hr>
-                                  
-                                    <form action="{{ route('stocks.store') }}" method="POST"
-                                        enctype="multipart/form-data">
+
+                                    <form id="formstk" action="{{ route('stocks.store') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="row">
-                                          
+
                                             <div class="row form-group">
                                                 <div class="col col-md-2"><label for="libellé"
                                                         class=" form-control-label">choisir</label></div>
@@ -38,42 +37,43 @@
                                                         <option value="0">s'il vous plait </option>
                                                         <option value="Entree">Entree</option>
                                                         <option value="Sortie">Sortie</option>
-                                                        
+
                                                     </select>
                                                 </div>
                                             </div>
-                                            
+
 
                                             <div id="champsChoix1" style="display: none;">
 
                                                 <label for="qte" class=" form-control-label">Qte :</label>
-                                                <div class="col-12 col-md-4"><input type="number"  class="form-control" name="qte" id="qte"></div>
-                                                <label for="prixunitaire" class=" form-control-label">prix unitaire :</label>
-                                                <div class="col-12 col-md-4"> <input type="number" class="form-control" name="prixunitaire" id="prixunitaire" ></div>   
-                                                
-                                                <button type="submit" class="btn btn-light px-5 offset-9"
-                                                    style="  width: 20%;
-                                                background-color: rgb(64, 33, 235);
-                                                color: rgb(243, 243, 245);
-                                                float: left;
-                                                font-weight: bold;">Terminer</button>
+                                                <div class="col-12 col-md-4"><input type="number" class="form-control"
+                                                        name="qte" id="qte"></div>
+                                                <label for="prixunitaire" class=" form-control-label">prix unitaire
+                                                    :</label>
+                                                <div class="col-12 col-md-4"> <input type="number" class="form-control"
+                                                        name="prixunitaire" id="prixunitaire"></div>
                                             </div>
 
                                             <div id="champsChoix2" style="display: none;">
                                                 <!-- Champs pour le choix 2 -->
                                                 <label for="qte1" class=" form-control-label">Qte:</label>
-                                                <div class="col-12 col-md-4"> <input type="number"   class="form-control"   name="qte1" id="qte1"></div>
-                                                <label for="prixunitaire1" class=" form-control-label">prix unitaire :</label>
-                                                <div class="col-12 col-md-4"> <input type="number"  class="form-control"   name="prixunitaire1" id="prixunitaire1"></div>
-                                               
-                                                <button type="submit" class="btn btn-light px-5 offset-9"
-                                                    style="  width: 20%;
-                                                background-color: rgb(64, 33, 235);
-                                                color: rgb(243, 243, 245);
-                                                float: left;
-                                                font-weight: bold;">Terminer</button>
+                                                <div class="col-12 col-md-4"> <input type="number" class="form-control"
+                                                        name="qte1" id="qte1"></div>
+                                                <label for="prixunitaire1" class=" form-control-label">prix unitaire
+                                                    :</label>
+                                                <div class="col-12 col-md-4"> <input type="number" class="form-control"
+                                                        name="prixunitaire1" id="prixunitaire1"></div>
+
+                                                      
                                             </div>
+                                            <button type="button" onclick="verif()" class="btn btn-light px-5 offset-9"
+                                            style="  width: 20%;
+                                        background-color: rgb(64, 33, 235);
+                                        color: rgb(243, 243, 245);
+                                        float: left;
+                                        font-weight: bold;">termine</button>
                                         </div>
+                                       
                                     </form>
 
                                 </div>
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div>
         </div>
     </div>
 </main>
@@ -110,4 +110,45 @@
             }
         });
     });
+
+    function verif() {
+        libellé = document.getElementById('libellé').value;
+        if (libellé == 'Sortie') {
+            qte = document.getElementById('qte1').value;
+            $.ajax({
+                url: '{{ route('verifstock') }}',
+                type: 'GET',
+                data: {
+                    qte: qte,
+                },
+                dataType: 'json',
+                success: function(data) {
+                    console.log('data:', data);
+                    if (data == 1) {
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'Quantité insuffisante',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    } else {
+                        $('#formstk').submit();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                    // Handle error case
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'An error occurred',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            });
+        } else {
+            $('#formstk').submit();
+        }
+
+    }
 </script>

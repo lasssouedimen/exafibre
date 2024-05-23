@@ -33,15 +33,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboardchef', function () {
-    return view('dashboardchef');
-})->middleware(['auth', 'verified'])->name('dashboardchef');
-
 
 
 Route::resource('/dashboard', DashboardController::class)->middleware(['auth', 'verified']);
 
-Route::resource('dashboardchef', DashboardchefController::class)->middleware(['auth', 'verified']);
+Route::get( '/dashboardchef',[DashboardController::class, 'indexChef'])->name('dashboardchef');
+
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -75,9 +75,12 @@ Route::get('/chefEquipechefarch', [ChefEquipeController::class, 'chefarch'])->na
 Route::get('generate-pdf', [StockController::class, 'generatePDF'])->name('generate-pdf');
 
 
-Route::post('/check-stock', [StockController::class, 'checkStock'])->name('check.stock');
+Route::get('/verifstock', [StockController::class, 'verif'])->name('verifstock');
 
 Route::resource('prof', ProfilesController::class);
+
+Route::get('/chefEquipechefarch', [ChefEquipeController::class, 'chefarch'])->name('chefEquipearchive');
+
 
 Route::get('/maps', function () {
     return view('maps');

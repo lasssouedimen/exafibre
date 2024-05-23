@@ -81,4 +81,11 @@ class DashboardController extends Controller
 
         return view('dashboard', compact('nbChefEq', 'nbTech', 'nbPjEnc', 'nbVoiture', 'venteSums', 'achatSums', 'achatMonths', 'nbPjEnC', 'nbPjAffect','accepterSums','refuserSums','refuserMonths'));
     }
+
+    public function indexChef(){
+        $nbTech = Techniciens::where('arch', 0)->count();
+        $nbPjEnc = Clientdemandes::whereIn('etat', [3, 2])->count();
+        $nbVoiture = parking::where('arch', 0)->count();
+        return view('dashboardchef', compact('nbTech', 'nbPjEnc', 'nbVoiture' ));
+    }
 }

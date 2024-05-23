@@ -83,10 +83,10 @@
                                                 </div>
                                                
                                             </div>
-                                            <div class="col col-md-1"><label for="Age"
+                                            <div class="col col-md-1"><label for="datenaissance"
                                                 class=" form-control-label" style="font-size:15px">Date de naissance : </label></div>
-                                        <div class="col-12 col-md-2"><input type="number" id="Age"
-                                                name="Age"  class="form-control" required>
+                                        <div class="col-12 col-md-2"><input type="date" id="datenaissance"
+                                                name="datenaissance"  class="form-control" required>
                                         </div>
                                             <button type="submit" class="btn btn-light px-4 offset-9"
                                                 style="  width: 13%;

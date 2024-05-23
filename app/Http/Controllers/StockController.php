@@ -23,6 +23,14 @@ class StockController extends Controller
     {
         return view('stocks.add');
     }
+
+    public function verif(Request $request){
+        $last =Stock::latest()->first();
+        if($request->qte<$last->qte2)
+            return 0;
+        else
+            return 1;
+    }
    
 
 
@@ -31,19 +39,26 @@ class StockController extends Controller
      */
     public function store(Request $request)
     { 
-        $sto=stock::create([
-            'date'=> Carbon::now(),
-            'libellé'=>$request->libellé,
-            'qte'=>$request->qte,
-            'prixunitaire'=>$request->prixunitaire,
-            'valeur'=>$request->qte*$request->prixunitaire,
-            'qte1'=>$request->qte1,
-            'prixunitaire1'=>$request->prixunitaire1,
-            'valeur1'=>$request->qte1*$request->prixunitaire1,
-            'qte2'=>$request->qte2,
-            'prixunitaire2'=>$request->prixunitaire2,
-            'valeur2'=>$request->valeur2,
-           ]);
+        $totalQte = stock::sum('qte');
+        $totalQte1 = stock::sum('qte1');
+        $qte2 = $totalQte - $totalQte1;
+        $totalValeur = stock::sum('valeur');
+    $totalValeur1 = stock::sum('valeur1');
+    $valeur2 = $totalValeur - $totalValeur1;
+    
+    $sto = stock::create([
+        'date' => Carbon::now(),
+        'libellé' => $request->libellé,
+        'qte' => $request->qte,
+        'prixunitaire' => $request->prixunitaire,
+        'valeur' => $request->qte * $request->prixunitaire,
+        'qte1' => $request->qte1,
+        'prixunitaire1' => $request->prixunitaire1,
+        'valeur1' => $request->qte1 * $request->prixunitaire1,
+        'qte2' => $qte2,
+        'prixunitaire2' => $request->prixunitaire2,
+        'valeur2' => $valeur2,
+    ]);
     
            
          return redirect(route('stocks.index')); 

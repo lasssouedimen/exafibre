@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('travaux/{id}', [ApiController::class, 'getTravailDetails']);
+Route::put('clientdemandes/{id}/updateState', [ApiController::class, 'updateClientDemandeState']);
+
+Route::post('login', [ApiController::class,'login']);

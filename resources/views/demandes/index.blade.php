@@ -56,6 +56,8 @@
                                                 <td style="color:green ; font-size:15px">Validée</td>
                                             @elseif($clientdemande->etat == 3)
                                                 <td style="color:green ; font-size:15px">Validée sans affectation</td>
+                                                @elseif($clientdemande->etat == 4)
+                                                <td style="color:green ; font-size:15px">Fini</td>
                                            
                                             @endif
 

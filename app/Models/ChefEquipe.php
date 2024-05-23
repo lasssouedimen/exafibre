@@ -13,7 +13,7 @@ class ChefEquipe extends Model
         'prenom',
         'Adresse',
         'Tel',
-        'Age',
+        'datenaissance',
         'Datedébut',
         'mail',
         'arch',
